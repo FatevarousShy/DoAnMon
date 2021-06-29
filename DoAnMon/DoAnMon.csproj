@@ -216,6 +216,7 @@
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Shared\_LayoutPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
