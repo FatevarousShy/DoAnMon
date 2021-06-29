@@ -28,9 +28,15 @@ namespace DoAnMon.Controllers
 
             return View();
         }
-        public ActionResult Login()
+        public ActionResult Signin()
         {
             ViewBag.Message = "Your Login page.";
+
+            return View();
+        }
+        public ActionResult SignUp()
+        {
+            ViewBag.Message = "Your Register page.";
 
             return View();
         }

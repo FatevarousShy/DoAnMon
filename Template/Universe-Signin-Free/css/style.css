@@ -249,25 +249,6 @@ body {
     padding: 0 5px;
     text-transform: capitalize;
 }
-
-.copyright {
-    padding: 0 20px;
-}
-.copyright p {
-
-    color: #fff;
-    font-size: 16px;
-    line-height: 26px;
-    text-align: center;
-    letter-spacing: 1px;
-
-}
-.copyright p a {
-    color: #fff;
-}
-.copyright p a:hover,.login-bottom a:hover {
-    color:#EA4C89;
-}
 /* -- Responsive code -- */
 @media screen and (max-width: 1280px) {
 }

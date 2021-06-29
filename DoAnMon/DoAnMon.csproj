@@ -138,6 +138,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\about.jpg" />
+    <Content Include="images\admin.png" />
     <Content Include="images\avatar1.jpg" />
     <Content Include="images\avatar4.jpg" />
     <Content Include="images\b1.jpg" />
@@ -213,7 +214,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\_LayoutPage1.cshtml" />
-    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\SignIn.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

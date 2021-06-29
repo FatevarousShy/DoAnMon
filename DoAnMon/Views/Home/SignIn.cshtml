@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "SignIn";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<!-- Body -->
+
+
+<body>
+    <!-- contact breadcrumbs -->
+    <nav id="breadcrumbs" class="breadcrumbs">
+        <div class="container page-wrapper text-center">
+            <div class="header-section">
+                <h2 class="mb-2">SignIn</h2>
+            </div>
+            <a href="index.html">Home</a> » <span class="breadcrumb_last" aria-current="page">SignIn</span>
+        </div>
+    </nav>
+    <!-- /contact breadcrumbs -->
+    <!-- index-block1 -->
+    <div class="w3l-index1">
+        <div class="content">
+            <div class="container">
+                    <div class="col-auto">
+                        <!-- Login Form-->
+                        <section>
+                            <div class="logo text-center">
+                                <h1>Đăng Nhập Vào Tài Khoản</h1>
+                            </div>
+                            <div class="content-w3ls text-center">
+                                <img src="~/images/admin.png" alt="" class="img-responsive">
+                                <form action="#" method="post">
+                                    <div class="wthree-field">
+                                        <input name="text1" id="text1" type="text" value="" placeholder="Username" required>
+                                    </div>
+                                    <div class="wthree-field">
+                                        <input name="password" id="myInput" type="Password" placeholder="Password">
+                                    </div>
+                                    <div class="wthree-field">
+                                        <button type="submit" class="btn">Sign In</button>
+                                    </div>
+                                    <div class="login-bottom">
+                                        <a href="https://localhost:44346/Home/SignUp" class="">Create An Account</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        <!-- /Login Form-->
+                    </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- //index-block1 -->
+    <!--/MENU-JS-->
+    <script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });</script>
+    <!--//MENU-JS-->
+    <!--theme switcher dark and light mode script-->
+    <script>
+        const bodyElement = document.querySelector('body');
+        const themeToggle = document.querySelector('#themeToggle');
+        const darkModeMql = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : userPreference(darkModeMql);
+
+        if (currentTheme) {
+            bodyElement.classList.add(currentTheme);
+
+            if (currentTheme === 'dark') {
+                themeToggle.checked = true;
+            }
+        }
+
+        function userPreference(e) {
+            if (e.matches) {
+                bodyElement.classList.add("dark");
+                return "dark"
+            } else {
+                bodyElement.classList.remove("dark");
+                return ""
+            }
+        }
+
+        darkModeMql.addListener(userPreference);
+
+        function themeSwitcher(e) {
+            if (e.target.checked) {
+                bodyElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                bodyElement.classList.remove('dark');
+                localStorage.setItem('theme', '');
+            }
+        }
+
+        themeToggle.addEventListener('change', themeSwitcher);
+    </script>
+    <!--//theme switcher dark and light mode script-->
+</body>
+<!-- //Body -->
