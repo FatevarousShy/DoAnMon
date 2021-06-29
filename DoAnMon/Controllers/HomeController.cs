@@ -10,6 +10,8 @@ namespace DoAnMon.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Message = "Your Home description page.";
+
             return View();
         }
 
@@ -23,6 +25,12 @@ namespace DoAnMon.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Login()
+        {
+            ViewBag.Message = "Your Login page.";
 
             return View();
         }
