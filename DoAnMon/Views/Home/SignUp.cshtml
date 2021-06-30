@@ -1,5 +1,146 @@
 ﻿
 @{
     ViewBag.Title = "SignUp";
+    Layout = "~/Views/_LayoutPage1.cshtml";
 }
+<!-- contact breadcrumbs -->
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 class="mb-2">SignUp</h2>
+        </div>
+        <a href="index.html">Home</a> » <span class="breadcrumb_last" aria-current="page">SignUp</span>
+    </div>
+</nav>
+<!-- /contact breadcrumbs -->
+<!-- index-block1 -->
+<div class="w3l-index1">
+    <div class="content1">
+            <div class="col-auto">
+                <!-- /SignUp-section -->
+                <section class="w3l-login-6">
+                    <div class="login-hny">
+                        <div class="form-content">
+                            <div class="form-right">
+                                <div class="overlay">
+                                    <div class="grid-info-form">
+                                        <h5>Say hello</h5>
+                                        <h3>CREATE ACCOUNT </h3>
+                                        <p>
+                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est natus facere aperiam!
+                                            Tenetur maiores dolore a quod pariatur ut voluptates quae saepe ea quasi laudantium,
+                                            iste molestias inventore fuga assumenda.
+                                        </p>
+                                        <a href="index.html" class="read-more-1 btn">Get Started</a>
+                                    </div>
 
+                                </div>
+                            </div>
+                            <div class="form-left">
+                                <div class="middle">
+                                    <h4>Join Us</h4>
+                                    <p>Create Your Account, It's Free.</p>
+                                </div>
+                                <form action="#" method="post" class="signin-form">
+                                    <div class="form-input">
+                                        <label>Name</label>
+                                        <input type="text" name="" placeholder="" required />
+                                    </div>
+                                    <div class="form-input">
+                                        <label>Email</label>
+                                        <input type="email" name="" placeholder="" required />
+                                    </div>
+                                    <div class="form-input">
+                                        <label>Password</label>
+                                        <input type="password" name="" placeholder="" required />
+                                    </div>
+
+                                    <label class="container">
+                                        I agree to <a href="#">Conditions</a> of Use and <a href="#">Privacy</a>
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <button class="btn">Create account</button>
+                                </form>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+                <!-- //SignUp-section -->
+            </div>
+            <div class="clear"></div>
+    </div>
+</div>
+<!-- //index-block1 -->
+<!--/MENU-JS-->
+<script>
+        $(window).on("scroll", function () {
+            var scroll = $(window).scrollTop();
+
+            if (scroll >= 80) {
+                $("#site-header").addClass("nav-fixed");
+            } else {
+                $("#site-header").removeClass("nav-fixed");
+            }
+        });
+
+        //Main navigation Active Class Add Remove
+        $(".navbar-toggler").on("click", function () {
+            $("header").toggleClass("active");
+        });
+        $(document).on("ready", function () {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+            $(window).on("resize", function () {
+                if ($(window).width() > 991) {
+                    $("header").removeClass("active");
+                }
+            });
+        });</script>
+<!--//MENU-JS-->
+<!--theme switcher dark and light mode script-->
+<script>
+        const bodyElement = document.querySelector('body');
+        const themeToggle = document.querySelector('#themeToggle');
+        const darkModeMql = window.matchMedia('(prefers-color-scheme: dark)');
+
+        const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : userPreference(darkModeMql);
+
+        if (currentTheme) {
+            bodyElement.classList.add(currentTheme);
+
+            if (currentTheme === 'dark') {
+                themeToggle.checked = true;
+            }
+        }
+
+        function userPreference(e) {
+            if (e.matches) {
+                bodyElement.classList.add("dark");
+                return "dark"
+            } else {
+                bodyElement.classList.remove("dark");
+                return ""
+            }
+        }
+
+        darkModeMql.addListener(userPreference);
+
+        function themeSwitcher(e) {
+            if (e.target.checked) {
+                bodyElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                bodyElement.classList.remove('dark');
+                localStorage.setItem('theme', '');
+            }
+        }
+
+        themeToggle.addEventListener('change', themeSwitcher);
+</script>
+<!--//theme switcher dark and light mode script-->
+</body>
+<!-- //Body -->
