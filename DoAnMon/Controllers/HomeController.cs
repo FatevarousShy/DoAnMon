@@ -10,33 +10,33 @@ namespace DoAnMon.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Your Home description page.";
+            ViewBag.Message = "Trang Chủ.";
 
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Về Chúng Tôi.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Trang Liên Lạc.";
 
             return View();
         }
         public ActionResult Signin()
         {
-            ViewBag.Message = "Your Login page.";
+            ViewBag.Message = "Trang Đăng Nhập.";
 
             return View();
         }
         public ActionResult SignUp()
         {
-            ViewBag.Message = "Your Register page.";
+            ViewBag.Message = "Trang Đăng Ký.";
 
             return View();
         }
