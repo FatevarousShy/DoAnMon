@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -142,12 +143,19 @@
     <Content Include="images\avatar1.jpg" />
     <Content Include="images\avatar4.jpg" />
     <Content Include="images\b1.jpg" />
+    <Content Include="images\b12.jpg" />
     <Content Include="images\b2.jpg" />
+    <Content Include="images\b22.jpg" />
     <Content Include="images\b3.jpg" />
+    <Content Include="images\b32.jpg" />
     <Content Include="images\b4.jpg" />
+    <Content Include="images\b42.jpg" />
     <Content Include="images\b5.jpg" />
+    <Content Include="images\b52.jpg" />
     <Content Include="images\b6.jpg" />
+    <Content Include="images\b62.jpg" />
     <Content Include="images\b7.jpg" />
+    <Content Include="images\b72.jpg" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\banner1.jpg" />
     <Content Include="images\check.png" />
@@ -166,6 +174,7 @@
     <Content Include="images\s5.jpg" />
     <Content Include="images\s6.jpg" />
     <Content Include="images\stat.jpg" />
+    <Content Include="images\stat2.jpg" />
     <Content Include="images\team1.jpg" />
     <Content Include="images\team2.jpg" />
     <Content Include="images\team3.jpg" />
@@ -174,6 +183,7 @@
     <Content Include="images\undraw_back_to_school_inwc.svg" />
     <Content Include="images\undraw_experts3_3njd.svg" />
     <Content Include="images\undraw_studying_s3l7.svg" />
+    <Content Include="js\autotrack.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\easyResponsiveTabs.js" />
     <Content Include="js\jquery-1.9.1.min.js" />
@@ -217,6 +227,8 @@
     <Content Include="Views\_LayoutPage1.cshtml" />
     <Content Include="Views\Home\SignIn.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\_LayoutPage2.cshtml" />
+    <Content Include="Views\LoginHome\TestBank.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
