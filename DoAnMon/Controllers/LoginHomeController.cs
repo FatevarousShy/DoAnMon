@@ -9,8 +9,10 @@ namespace DoAnMon.Controllers
     public class LoginHomeController : Controller
     {
         // GET: LoginHome
-        public ActionResult Index()
+        public ActionResult LoginIndex()
         {
+            ViewBag.Message = "Your HomeLogin page.";
+
             return View();
         }
         public ActionResult TestBank()

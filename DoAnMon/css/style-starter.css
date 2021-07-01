@@ -3728,6 +3728,8 @@ pre {
 .col-xl-auto {
     position: relative;
     width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 .col {
@@ -14206,7 +14208,7 @@ nav#breadcrumbs a {
     .w3l-header .navbar .navbar-brand {
         margin: 0;
         padding: 0;
-        font-size: 32px;
+        font-size: 45px;
         font-weight: 600;
         text-transform: capitalize;
         color: var(--primary-color);

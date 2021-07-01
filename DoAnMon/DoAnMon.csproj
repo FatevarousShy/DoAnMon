@@ -229,6 +229,7 @@
     <Content Include="Views\Home\SignUp.cshtml" />
     <Content Include="Views\_LayoutPage2.cshtml" />
     <Content Include="Views\LoginHome\TestBank.cshtml" />
+    <Content Include="Views\LoginHome\LoginIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
