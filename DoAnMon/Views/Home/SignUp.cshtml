@@ -44,7 +44,6 @@
                                 <form action="#" method="post" class="signin-form">
                                     <div class="form-input">
                                         <label>Name</label>
-
                                         <td>
                                             @Html.TextBox("TenDN")
                                             @ViewData["Loi1"]
@@ -53,7 +52,6 @@
 
                                     <div class="form-input">
                                         <label>Password</label>
-
                                         <td>
                                             @Html.Password("Matkhau")
                                             @ViewData["Loi2"]
@@ -71,7 +69,7 @@
 
                                     <label class="container">
                                         I agree to <a href="#">Conditions</a> of Use and <a href="#">Privacy</a>
-                                        <input type="checkbox">
+                                        <input type="checkbox" required name="terms">
                                         <span class="checkmark"></span>
                                     </label>
                                     <button class="btn">Create account</button>
