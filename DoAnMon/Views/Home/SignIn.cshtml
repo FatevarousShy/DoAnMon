@@ -26,20 +26,31 @@
                         <section>
                             <div class="content-w3ls text-center">
                                 <img src="~/images/admin.png" alt="" class="img-responsive">
+                                @using (Html.BeginForm())
+                                {
                                 <form action="#" method="post">
                                     <div class="wthree-field">
-                                        <input name="text1" id="text1" type="text" value="" placeholder="Username" required>
+                                        <td> Tên đăng nhập</td>
+                                        <td>
+                                            @Html.TextBox("TenDN")
+                                            @ViewData["Loi1"]
+                                        </td>
                                     </div>
                                     <div class="wthree-field">
-                                        <input name="password" id="myInput" type="Password" placeholder="Password">
+                                        <td>Mật khẩu</td> 
+                                        <td>
+                                            @Html.Password("Matkhau")
+                                            @ViewData["Loi2"]
+                                        </td>
                                     </div>
-                                    <div class="wthree-field">
-                                        <button type="submit" class="btn">Sign In</button>
-                                    </div>
-                                    <div class="login-bottom">
-                                        <a href="https://localhost:44346/Home/SignUp" class="">Create An Account</a>
-                                    </div>
+                                <div class="wthree-field">
+                                    <button type="submit" class="btn">Sign In</button>
+                                </div>
+                                <div class="login-bottom">
+                                    <a href="https://localhost:44346/Home/SignUp" class="">Create An Account</a>
+                                </div>
                                 </form>
+                                }
                             </div>
                         </section>
                         <!-- /Login Form-->

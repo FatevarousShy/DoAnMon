@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="web" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=web;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="webConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.BaiThi" Member="BaiThis">
+    <Type Name="BaiThi">
+      <Column Name="MaBaiThi" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Diem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DapAn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BaiThi_CTBaiThi" Member="CTBaiThis" ThisKey="MaBaiThi" OtherKey="MaBaiThi" Type="CTBaiThi" />
+      <Association Name="BaiThi_DeThi" Member="DeThis" ThisKey="MaBaiThi" OtherKey="MaBaiThi" Type="DeThi" />
+      <Association Name="CauHoi_BaiThi" Member="CauHoi" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="CauHoi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="MaTK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDangNhap" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MatKhau" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CauHoi" Member="CauHois">
+    <Type Name="CauHoi">
+      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NoiDungCauHoi" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="A" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="B" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="C" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="D" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="DapAnDung" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CauHoi_BaiThi" Member="BaiThis" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="BaiThi" />
+      <Association Name="CauHoi_CTBaiThi" Member="CTBaiThis" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="CTBaiThi" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTBaiThi" Member="CTBaiThis">
+    <Type Name="CTBaiThi">
+      <Column Name="MaBaiThi" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoCauHoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenBaiThi" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="BaiThi_CTBaiThi" Member="BaiThi" ThisKey="MaBaiThi" OtherKey="MaBaiThi" Type="BaiThi" IsForeignKey="true" />
+      <Association Name="CauHoi_CTBaiThi" Member="CauHoi" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="CauHoi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTDeThi" Member="CTDeThis">
+    <Type Name="CTDeThi">
+      <Column Name="MaPhan" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDe" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SoLuong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GiaDe" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="DeThi_CTDeThi" Member="DeThi" ThisKey="MaDe" OtherKey="MaDe" Type="DeThi" IsForeignKey="true" />
+      <Association Name="PhanThi_CTDeThi" Member="PhanThi" ThisKey="MaPhan" OtherKey="MaPhan" Type="PhanThi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DeThi" Member="DeThis">
+    <Type Name="DeThi">
+      <Column Name="MaDe" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDe" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaBaiThi" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="DeThi_CTDeThi" Member="CTDeThis" ThisKey="MaDe" OtherKey="MaDe" Type="CTDeThi" />
+      <Association Name="DeThi_PhanThi" Member="PhanThis" ThisKey="MaDe" OtherKey="MaDe" Type="PhanThi" />
+      <Association Name="BaiThi_DeThi" Member="BaiThi" ThisKey="MaBaiThi" OtherKey="MaBaiThi" Type="BaiThi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PhanThi" Member="PhanThis">
+    <Type Name="PhanThi">
+      <Column Name="MaPhan" Type="System.String" DbType="VarChar(20) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenPhan" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="MaDe" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="PhanThi_CTDeThi" Member="CTDeThis" ThisKey="MaPhan" OtherKey="MaPhan" Type="CTDeThi" />
+      <Association Name="DeThi_PhanThi" Member="DeThi" ThisKey="MaDe" OtherKey="MaDe" Type="DeThi" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
