@@ -30,24 +30,24 @@
                                 {
                                 <form action="#" method="post">
                                     <div class="wthree-field">
-                                        <td> Tên đăng nhập</td>
+                                        <label>Tên đăng nhập</label>
                                         <td>
                                             @Html.TextBox("TenDN")
                                             @ViewData["Loi1"]
                                         </td>
                                     </div>
                                     <div class="wthree-field">
-                                        <td>Mật khẩu</td> 
+                                        <label>Mật khẩu</label> 
                                         <td>
                                             @Html.Password("Matkhau")
                                             @ViewData["Loi2"]
                                         </td>
                                     </div>
                                 <div class="wthree-field">
-                                    <button type="submit" class="btn">Đăng nhạpa</button>
+                                    <button type="submit" class="btn">Đăng nhập</button>
                                 </div>
                                 <div class="login-bottom">
-                                    <a href="https://localhost:44346/Home/SignUp" class="">Tạo tài khoản mới</a>
+                                    <button class="btn btn-default read-more-1" type="submit">@Html.ActionLink("Tạo Tài Khoản Mới", "SignUp", "Home")</button>
                                 </div>
                                 </form>
                                 }
