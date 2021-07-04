@@ -19,6 +19,32 @@
     </div>
 </div>
 <!-- //index-block1 -->
+<!-- subscribe section -->
+<section class="w3l-subscribe py-5">
+    <div class="container py-lg-3">
+        <div class="row mt-4">
+            <div class="col-lg-9 col-md-10 mx-auto">
+                <div class="subscribe mx-auto">
+                    <div class="header-section text-center mx-auto">
+                        <h3>Tiếp tục được cập nhật </h3>
+                        <p class="my-3">
+                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                            Nulla mollis dapibus nunc, ut rhoncus
+                            turpis sodales quis. Integer sit amet mattis quam.
+                        </p>
+                    </div>
+                    <form action="#" method="post" class="subscribe-wthree pt-2 mt-5">
+                        <div class="d-flex flex-wrap subscribe-wthree-field">
+                            <input class="form-control" type="email" placeholder="Enter your email..." name="email" required="">
+                            <button class="btn btn-primary theme-button" type="submit">Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- //subscribe -->
 <section class="w3l-testimonials" id="testimonials">
     <div class="testimonials py-5">
         <div class="container py-lg-3">
@@ -154,46 +180,20 @@
     </div>
 </section>
 <!-- //stats -->
-<!-- logos Section -->
-<section class="w3l-logos pb-5">
-    <div class="container py-lg-3">
-        <div class="row">
-            <div class="col-lg-10 mx-auto">
-                <div class="owl-logos owl-carousel owl-theme logo-view">
-                    <div class="item">
-                        <img src="~/images/logo1.png" alt="company-logo" class="img-fluid">
-                    </div>
-                    <div class="item">
-                        <img src="~/images/logo2.png" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="~/images/logo3.png" alt="company-logo" class="img-fluid">
-
-                    </div>
-                    <div class="item">
-                        <img src="~/images/logo4.png" alt="company-logo" class="img-fluid">
-
-                    </div>
-                </div>
-            </div>
+<!-- getstarted -->
+<section class="w3l-getstarted py-5">
+    <div class="container py-md-3 text-center">
+        <div class="header-section mx-auto">
+            <h3>Đã sẵn sàng để bắt đầu </h3>
+            <p class="my-3"> We love conversations, and would love to have one with you! Whether you’re looking for a speaker, an awesome career, or want to get started with a rewards program, we would love hear from you.</p>
+        </div>
+        <div class="buttons mt-5">
+            <a href="contact.html" class="btn btn-outline-primary mr-2 theme-button">Tài liệu tham khảo</a>
+            <a href="login.html" class="btn btn-primary theme-button ml-2">Bắt đầu thi ngay!</a>
         </div>
     </div>
 </section>
-<!-- //logos Section -->
-<section class="w3l-index5 py-5 text-center">
-    <div class="container py-lg-5">
-        <div class="row">
-            <div class="col-lg-9 col-md-10 mx-auto">
-                <div class="header-section white join mb-5">
-                    <h3>Thông tin hữu ích khác</h3>
-                    <p class="my-3">Match your goals to our programs, explore your options and map out your path to success.</p>
-                </div>
-                <a href="login.html" class="btn btn-light theme-button">Hay tham gia với chúng tôi</a>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- / getstarted -->
 <section class="w3l-faq py-5">
     <div class="faq-content py-lg-3">
         <div class="container">
@@ -264,53 +264,52 @@
                         </div>
                     </div>
                     <div class="more text-center mt-5">
-                        <a href="faq.html" class="btn btn-light theme-button">Xem thêm <span class="fa fa-long-arrow-right"></span></a>
-                    </div>
+                        <a @Html.ActionLink("Câu Hỏi Thường Gặp", "Faq", "Home", new { @class = "btn btn-light theme-button" }) </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- subscribe section -->
-<section class="w3l-subscribe py-5">
+<!-- logos Section -->
+<section class="w3l-logos pb-5">
     <div class="container py-lg-3">
-        <div class="row mt-4">
-            <div class="col-lg-9 col-md-10 mx-auto">
-                <div class="subscribe mx-auto">
-                    <div class="header-section text-center mx-auto">
-                        <h3>Tiếp tục được cập nhật </h3>
-                        <p class="my-3">
-                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
-                            Nulla mollis dapibus nunc, ut rhoncus
-                            turpis sodales quis. Integer sit amet mattis quam.
-                        </p>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="owl-logos owl-carousel owl-theme logo-view">
+                    <div class="item">
+                        <img src="~/images/logo1.png" alt="company-logo" class="img-fluid">
                     </div>
-                    <form action="#" method="post" class="subscribe-wthree pt-2 mt-5">
-                        <div class="d-flex flex-wrap subscribe-wthree-field">
-                            <input class="form-control" type="email" placeholder="Enter your email..." name="email" required="">
-                            <button class="btn btn-primary theme-button" type="submit">Đăng ký</button>
-                        </div>
-                    </form>
+                    <div class="item">
+                        <img src="~/images/logo2.png" alt="company-logo" class="img-fluid">
+
+                    </div>
+                    <div class="item">
+                        <img src="~/images/logo3.png" alt="company-logo" class="img-fluid">
+
+                    </div>
+                    <div class="item">
+                        <img src="~/images/logo4.png" alt="company-logo" class="img-fluid">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- //subscribe -->
-<!-- getstarted -->
-<section class="w3l-getstarted py-5">
-    <div class="container py-md-3 text-center">
-        <div class="header-section mx-auto">
-            <h3>Đã sẵn sàng để bắt đầu </h3>
-            <p class="my-3"> We love conversations, and would love to have one with you! Whether you’re looking for a speaker, an awesome career, or want to get started with a rewards program, we would love hear from you.</p>
-        </div>
-        <div class="buttons mt-5">
-            <a href="contact.html" class="btn btn-outline-primary mr-2 theme-button">Tài liệu tham khảo</a>
-            <a href="login.html" class="btn btn-primary theme-button ml-2">Bắt đầu thi</a>
+<!-- //logos Section -->
+<section class="w3l-index5 py-5 text-center">
+    <div class="container py-lg-5">
+        <div class="row">
+            <div class="col-lg-9 col-md-10 mx-auto">
+                <div class="header-section white join mb-5">
+                    <h3>Thông tin hữu ích khác</h3>
+                    <p class="my-3">Match your goals to our programs, explore your options and map out your path to success.</p>
+                </div>
+                <a href="login.html" class="btn btn-light theme-button">Hay tham gia với chúng tôi</a>
+            </div>
         </div>
     </div>
 </section>
-<!-- / getstarted -->
 <!-- Template JavaScript -->
 <!-- owl carousel -->
 <script src="~/js/owl.carousel.js"></script>

@@ -32,6 +32,12 @@ namespace DoAnMon.Controllers
 
             return View();
         }
+        public ActionResult Faq()
+        {
+            ViewBag.Message = "Trang Câu Hỏi Thường Gặp.";
+
+            return View();
+        }
         public ActionResult Signin()
         {
             ViewBag.Message = "Trang Đăng Nhập.";

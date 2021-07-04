@@ -28,28 +28,28 @@
                                 <img src="~/images/admin.png" alt="" class="img-responsive">
                                 @using (Html.BeginForm())
                                 {
-                                <form action="#" method="post">
-                                    <div class="wthree-field">
-                                        <label>Tên đăng nhập</label>
-                                        <td>
-                                            @Html.TextBox("TenDN")
-                                            @ViewData["Loi1"]
-                                        </td>
-                                    </div>
-                                    <div class="wthree-field">
-                                        <label>Mật khẩu</label> 
-                                        <td>
-                                            @Html.Password("Matkhau")
-                                            @ViewData["Loi2"]
-                                        </td>
-                                    </div>
-                                <div class="wthree-field">
-                                    <button type="submit" class="btn">Đăng nhập</button>
-                                </div>
-                                <div class="login-bottom">
-                                    <button class="btn read-more-1">@Html.ActionLink("Tạo Tài Khoản Mới", "SignUp", "Home")</button>
-                                </div>
-                                </form>
+                                        <form action="#" method="post">
+                                            <div class="wthree-field">
+                                                <label>Tên đăng nhập</label>
+                                                <td>
+                                                    @Html.TextBox("TenDN")
+                                                    @ViewData["Loi1"]
+                                                </td>
+                                            </div>
+                                            <div class="wthree-field">
+                                                <label>Mật khẩu</label> 
+                                                <td>
+                                                    @Html.Password("Matkhau")
+                                                    @ViewData["Loi2"]
+                                                </td>
+                                            </div>
+                                            <div class="wthree-field">
+                                                <button type="submit" class="btn">Đăng nhập</button>
+                                            </div>
+                                            <div class="login-bottom">
+                                                <a> @Html.ActionLink("Tạo Tài Khoản Mới", "SignUp", "Home", new { @class = "btn btn-default read-more-1" })</a>
+                                            </div>
+                                        </form>
                                 }
                             </div>
                         </section>

@@ -254,6 +254,7 @@
     <Content Include="Views\LoginHome\YourAccount.cshtml" />
     <Content Include="Views\LoginHome\OnlineTest.cshtml" />
     <Content Include="Views\LoginHome\TestPost.cshtml" />
+    <Content Include="Views\Home\Faq.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
