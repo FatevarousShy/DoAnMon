@@ -7,9 +7,9 @@
 <nav id="breadcrumbs" class="breadcrumbs">
     <div class="container page-wrapper text-center">
         <div class="header-section">
-            <h2 class="mb-2">SignUp</h2>
+            <h2 class="mb-2">Tạo tài khoản</h2>
         </div>
-        <a href="index.html">Home</a> » <span class="breadcrumb_last" aria-current="page">SignUp</span>
+        <a href="index.html">Trang chủ</a> » <span class="breadcrumb_last" aria-current="page">Tạo tài khoản</span>
     </div>
 </nav>
 <!-- /contact breadcrumbs -->
@@ -24,26 +24,25 @@
                             <div class="form-right">
                                 <div class="overlay">
                                     <div class="grid-info-form">
-                                        <h5>Say hello</h5>
-                                        <h3>CREATE ACCOUNT </h3>
+                                        <h5>Xi chào</h5>
+                                        <h3>Bạn đã có tài khoản</h3>
                                         <p>
-                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est natus facere aperiam!
-                                            Tenetur maiores dolore a quod pariatur ut voluptates quae saepe ea quasi laudantium,
-                                            iste molestias inventore fuga assumenda.
+                                            Trở về trang đăng nhập tại đây
                                         </p>
-                                        <a href="https://localhost:44346/?Length=4" class="read-more-1 btn">Get Started</a>
+                                        <a href="https://localhost:44346/Home/SignIn?Length=4" class="read-more-1 btn">Đăng nhập</a>
                                     </div>
 
                                 </div>
                             </div>
                             <div class="form-left">
                                 <div class="middle">
-                                    <h4>Join Us</h4>
-                                    <p>Create Your Account, It's Free.</p>
+                                    <h4>Thông tin của bạn</h4>
+                                    <p>Tạo tài khoản của bạn, hoàn toàn miễn phí.</p>
                                 </div>
                                 <form action="#" method="post" class="signin-form">
                                     <div class="form-input">
-                                        <label>Name</label>
+                                        <label>Tên đăng nhập</label>
+
                                         <td>
                                             @Html.TextBox("TenDN")
                                             @ViewData["Loi1"]
@@ -51,7 +50,8 @@
                                     </div>
 
                                     <div class="form-input">
-                                        <label>Password</label>
+                                        <label>Mật khẩu</label>
+
                                         <td>
                                             @Html.Password("Matkhau")
                                             @ViewData["Loi2"]
@@ -68,11 +68,11 @@
 
 
                                     <label class="container">
-                                        I agree to <a href="#">Conditions</a> of Use and <a href="#">Privacy</a>
-                                        <input type="checkbox" required name="terms">
+                                        Bạn đồng ý với <a href="#">điều khoản</a><a href="#"> của chúng tôi </a>
+                                        <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <button class="btn">Create account</button>
+                                    <button class="btn">Tạo tài khoản</button>
                                 </form>
                             </div>
 
