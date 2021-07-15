@@ -44,8 +44,8 @@
                                         <label>Tên đăng nhập</label>
 
                                         <td>
+                                            <h4 class="alert-danger wthree-field">@ViewData["Loi1"]</h4>
                                             @Html.TextBox("TenDN")
-                                            @ViewData["Loi1"]
                                         </td>
                                     </div>
 
@@ -53,16 +53,16 @@
                                         <label>Mật khẩu</label>
 
                                         <td>
+                                            <h4 class="alert-danger wthree-field">@ViewData["Loi2"]</h4>
                                             @Html.Password("Matkhau")
-                                            @ViewData["Loi2"]
                                         </td>
                                     </div>
 
                                     <div class="form-input">
                                         <label>Email</label>
                                         <td>
+                                            <h4 class="alert-danger wthree-field">@ViewData["Loi3"]</h4>
                                             @Html.TextBox("Email")
-                                            @ViewData["Loi3"]
                                         </td>
                                     </div>
 

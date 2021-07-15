@@ -3196,18 +3196,24 @@ sup {
 }
 
 a {
-    color: #dc8592;
+    color: inherit;
     text-decoration: none;
     background-color: transparent;
 }
-
     a:hover {
         color: #3b151a;
         text-decoration: underline;
     }
+    a .alert-danger{
+    color: orangered;
+    font-size: 14px;
+    }
+        a .alert-danger:hover .alert-dark {
+            color: darkred;
+            font-size: 14px;
+        }
 
     a:not([href]) {
-        color: inherit;
         text-decoration: none;
     }
 
@@ -18904,8 +18910,6 @@ h2.resp-accordion:first-child {
         border-radius: 35px;
         -webkit-border-radius: 35px;
         -moz-border-radius: 35px;
-        -ms-border-radius: 35px;
-        -o-border-radius: 35px;
     }
 
 ::-webkit-input-placeholder { /* Edge */
