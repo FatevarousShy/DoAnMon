@@ -8,10 +8,10 @@ using System.Web.Mvc;
 namespace DoAnMon.Controllers
 {
     public class LoginHomeController : Controller
-    
+
     {
         WebTNDataContext db = new WebTNDataContext();
-        
+
         // GET: LoginHome
         public ActionResult LoginIndex()
         {
