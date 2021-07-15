@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoAnMon.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,10 @@ using System.Web.Mvc;
 namespace DoAnMon.Controllers
 {
     public class LoginHomeController : Controller
+    
     {
+        WebTNDataContext db = new WebTNDataContext();
+        
         // GET: LoginHome
         public ActionResult LoginIndex()
         {
@@ -15,11 +19,15 @@ namespace DoAnMon.Controllers
 
             return View();
         }
+        private List<DeThi> DeThiMoi(int count)
+        {
+            return db.DeThis.Take(count).ToList();
+        }
         public ActionResult TestBank()
         {
             ViewBag.Message = "Trang Ngân Hàng Đề.";
-
-            return View();
+            var sachmoi = DeThiMoi(6);
+            return View(sachmoi);
         }
         public ActionResult YourAccount()
         {

@@ -6,7 +6,6 @@
 <!-- Body -->
 
 
-<body>
     <!-- breadcrumbs -->
     <nav id="breadcrumbs" class="breadcrumbs">
         <div class="container page-wrapper text-center">
@@ -29,15 +28,13 @@
                                 @using (Html.BeginForm())
                                 {
                                         <form action="#" method="post">
-                                            <div class="wthree-field">
-                                                <label>Tên đăng nhập</label>
+                                            <div class="wthree-field" placeholder="Đăng Nhập">
                                                 <td>
                                                     @Html.TextBox("TenDN")
                                                     @ViewData["Loi1"]
                                                 </td>
                                             </div>
-                                            <div class="wthree-field">
-                                                <label>Mật khẩu</label> 
+                                            <div class="wthree-field" placeholder="Mật Khẩu">
                                                 <td>
                                                     @Html.Password("Matkhau")
                                                     @ViewData["Loi2"]
