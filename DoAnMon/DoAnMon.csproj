@@ -282,6 +282,7 @@
     <Content Include="Views\Home\Faq.cshtml" />
     <Content Include="Views\LoginHome\MucBoDe.cshtml" />
     <Content Include="Views\LoginHome\BoDeTheoMuc.cshtml" />
+    <Content Include="Views\_LayoutThuVienDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

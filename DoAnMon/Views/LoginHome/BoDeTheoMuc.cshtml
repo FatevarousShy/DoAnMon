@@ -4,7 +4,19 @@
     Layout = "~/Views/_LayoutPage2.cshtml";
 }
 
+<!-- contact breadcrumbs -->
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 class="mb-2">Thư Viện Đề</h2>
+        </div>
+        <a href="index.html">Trang chủ đăng nhập</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề</span>
+    </div>
+</nav>
 
+
+<!-- /contact breadcrumbs -->
+<!-- //index-block1 -->
 <section class="w3l-blog">
     <div class="single blog pb-5 pt-md-4 pt-2">
         <div class="container pb-lg-3">
@@ -53,13 +65,6 @@
                 <!-- left side blog post content -->
                 <!-- right side bar -->
                 <div class="right-side-bar col-lg-4 pl-lg-5">
-                    <aside>
-                        <h3 class="aside-title mb-3">Tìm kiếm</h3>
-                        <form class="form-inline search-form" action="#" method="post">
-                            <input class="form-control" type="search" placeholder="Nội dung cần tìm" aria-label="email" required="">
-                            <button class="btn search" type="submit"><span class="fa fa-search"></span></button>
-                        </form>
-                    </aside>
                     <aside class="posts p-4">
                         @Html.Action("MucBoDe", "LoginHome")
                     </aside>
