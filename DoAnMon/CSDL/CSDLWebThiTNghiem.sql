@@ -11,12 +11,11 @@ go
 create table TaiKhoan
 (
 	MaTK int IDENTITY(1,1),
-	TenDangNhap varchar(50),
+	TenTaiKhoan varchar(50),
 	MatKhau varchar(50) not null,
 	Email varchar(100),	
 	CONSTRAINT PK_TaiKhoan PRIMARY KEY(MaTK),
 )
-
 create table ThongTin
 (
 	MaTTCN int identity(1,1),
@@ -31,41 +30,25 @@ create table ThongTin
 	constraint FK_TaiKhoan foreign key (MaTK) references TaiKhoan (MaTK)
 );
 
-create table SuaDe
+
+create table BaiThi
 (
-	MaSuaDe int identity(1,1),
+	MaBaiThi int identity(1,1) ,
+	TenBaiThi nvarchar(20) not null,
+	AnhBia varchar(50),
+	NgayLam datetime,
 	MaTTCN int,
-	NguoiSua nvarchar(150),
-	constraint PK_SuaDe PRIMARY KEY(MaSuaDe),
+	constraint PK_BaiThi PRIMARY KEY(MaBaiThi),
 	constraint FK_ThongTin foreign key (MaTTCN) references ThongTin (MaTTCN)
 );
 
-create table PhanThi
+create table CTBaiThi
 (
-	MaPhan int identity(1,1) ,
-	TenPhan nvarchar(20) not null,
-	CONSTRAINT PK_PhanThi PRIMARY KEY(MaPhan)
-);
-
-create table CTSuaDe
-(
-	MaSuaDe int ,
-	MaDe int ,
-	NgaySua datetime ,
-	constraint PK_CTSuaDe primary key (MaSuaDe,MaDe),
-	constraint CTSuaDe_SuaDe foreign key (MaSuaDe) references SuaDe (MaSuaDe),
-	constraint CTSuaDe_DeThi foreign key (MaDe) references DeThi (MaDe)
-);
-create table DeThi
-(
-	MaDe int identity(1,1) ,
-	TenDe nvarchar(20) not null,
-	AnhBia varchar(50),
-	NgaycapNhat datetime,
-	MaPhan int,
+	MaBaiThi int,
 	MaCauHoi int,
-	constraint PK_DeThi PRIMARY KEY(MaDe),
-	constraint FK_PhanThi foreign key (MaPhan) references PhanThi (MaPhan),
+	DapAn int check(DapAn >0),
+	constraint PK_CTBaiThi PRIMARY KEY(MaBaiThi,MaCauHoi),
+	constraint FK_CTBaiThi foreign key (MaBaiThi) references BaiThi (MaBaiThi),
 	constraint FK_CauHoi foreign key (MaCauHoi) references CauHoi (MaCauHoi)
 );
 
@@ -77,18 +60,34 @@ create table CauHoi
 	B nvarchar(600) ,
 	C nvarchar(600) ,
 	D nvarchar(600) , 
-	DapAnDung int,
+	AnhCauHoi varchar(50),
+	DapAnDung int check(DapAnDung > 0),
 	constraint PK_CauHoi PRIMARY KEY(MaCauHoi)
 );
 
+create table BoDe
+(
+	MaBoDe int identity(1,1) ,
+	TenBoDe nvarchar(20) not null,
+	AnhBia varchar(50),
+	NgaycapNhat datetime,
+	MaDanhMucBoDe int,
+	constraint PK_BoDeThi PRIMARY KEY(MaBoDe),
+	constraint FK_DanhMucBoDe foreign key (MaDanhMucBoDe) references DanhMucBoDe (MaDanhMucBoDe)
+
+);
+create table DanhMucBoDe
+(
+	MaDanhMucBoDe int identity(1,1) ,
+	TenDanhMucBoDe nvarchar(20) not null,	
+	constraint PK_DanhMucBoDe PRIMARY KEY(MaDanhMucBoDe)
+)
 
 
-
-
-INSERT TaiKhoan(TenDangNhap, Matkhau, Email)
+INSERT TaiKhoan(TenTaiKhoan, Matkhau, Email)
 VALUES (N'minhabc',N'123', '123@hgmail.com')
 
-INSERT TaiKhoan(TenDangNhap, Matkhau, Email)
+INSERT TaiKhoan(TenTaiKhoan, Matkhau, Email)
 VALUES (N'thuabc',N'321', '321@hgmail.com')
 
 
@@ -100,28 +99,68 @@ values (2,N'1aava',N'asda',N'ava','123456789','01/01/2000')
 
 
 /* PhanThi */
-insert PhanThi(TenPhan)
-values (N'Phần A1')
+insert DanhMucBoDe(TenDanhMucBoDe)
+values (N'A1')
 
-insert PhanThi(TenPhan)
-values (N'Phần A2')
+insert DanhMucBoDe(TenDanhMucBoDe)
+values (N'A2')
+
+insert DanhMucBoDe(TenDanhMucBoDe)
+values (N'B1')
+
+insert DanhMucBoDe(TenDanhMucBoDe)
+values (N'C')
+
 
 /***** DeThi ******/
 
-insert DeThi(TenDe,AnhBia,NgaycapNhat,MaPhan)
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
 values (N'Đề thi 01',N'de02.jpg','02/14/2021',1)
 
-insert DeThi(TenDe,AnhBia,NgaycapNhat,MaPhan)
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
 values (N'Đề thi 02',N'de03.png','05/12/2021',1)
 
-insert DeThi(TenDe,AnhBia,NgaycapNhat,MaPhan)
-values (N'Đề thi 01',N'de02.jpg','06/05/2021',2)
-
-insert DeThi(TenDe,AnhBia,NgaycapNhat,MaPhan)
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
 values (N'Đề thi 03',N'de05.png','03/16/2021',1)
 
-insert DeThi(TenDe,AnhBia,NgaycapNhat,MaPhan)
-values (N'Đề thi 04',N'de04.jpg','05/07/2021',2)
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 01',N'de02.jpg','06/05/2021',2)
 
-insert DeThi(TenDe,AnhBia,NgaycapNhat,MaPhan)
-values (N'Đề thi 02',N'de03.png','05/16/2021',2)
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 02',N'de04.jpg','05/07/2021',2)
+
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 03',N'de07.jpg','05/10/2021',2)
+
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 01',N'de08.jpg','07/16/2021',3)
+
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 02',N'de01.png','02/15/2021',3)
+
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 03',N'de06.png','10/16/2021',4)
+
+insert BoDe(TenBoDe,AnhBia,NgaycapNhat,MaDanhMucBoDe)
+values (N'Đề thi 01',N'de03.png','04/25/2021',4)
+
+/** CauHoi ****/
+insert CauHoi(NoiDungCauHoi,A,B,C,D,DapAnDung)
+	
+	
+
+create table admin
+(
+	UserAdmin varchar(30) primary key,
+	PassAdmin varchar(30) not null,
+	Hoten nVarchar(50)
+)
+Insert into admin values('admin','123456',N'Nguyen Van A')
+Insert into admin values('user','654321',N'Mr A')
+	
+select * from ThongTin
+select * from TaiKhoan
+
+
+delete from TaiKhoan
+delete from ThongTin
