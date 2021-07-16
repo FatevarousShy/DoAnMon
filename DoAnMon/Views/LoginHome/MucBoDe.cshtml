@@ -1,0 +1,14 @@
+﻿@model IEnumerable<DoAnMon.Models.DanhMucBoDe>
+@{
+    ViewBag.Title = "MucBoDe";
+
+}
+
+
+
+@foreach (var mucBoDe in Model)
+{
+    @mucBoDe.TenDanhMucBoDe
+    @Html.Action("TestBank", "LoginHome")
+}
+

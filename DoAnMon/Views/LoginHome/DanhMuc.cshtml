@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DoAnMon.Models.DanhMucBoDe>
+<h3 class="aside-title">Tất cả danh mục</h3>
+<ul class="category">
+    @foreach(var item in Model)
+            {
+                <li><a href="@Url.Action("DanhMucDe", "LoginHome", new { id = item.MaDanhMucBoDe})"><span class="fa fa-angle-right">Bộ đề @item.TenDanhMucBoDe</span></a></li>
+            }
+</ul>
+

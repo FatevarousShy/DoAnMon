@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DoAnMon.Models.BoDe>
+@{
+    ViewBag.Title = "DanhMucDe";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+
+<h2>DanhMucDe</h2>
+@foreach (var dethi in Model)
+{
+    <div class="col-md-6">
+        <div class="blog-post">
+            <div class="blg-img">
+                <img alt="@dethi.TenBoDe" class="img-fluid" src="~/images/@dethi.AnhBia" />
+            </div>
+            <a href="@Url.Action("TestBank", "LoginHome", new {id = dethi.MaBoDe })">
+                <div class="btom-cont">
+                    <h5 class="card-title"> <span>@dethi.TenBoDe</span></h5>
+                    <ul class="admin-post">
+                        <li>
+                            <a href="https://localhost:44346/LoginHome/TestPost"><span class="fa fa-user-o"></span> Alexander</a>
+                        </li>
+                        <li>
+                            <span class="fa fa-clock-o"></span>May 11, 2020
+                        </li>
+                        <li>
+                            <a href="https://localhost:44346/LoginHome/TestPost"><span class="fa fa-folder-open-o"></span>HTML</a>
+                        </li>
+                    </ul>
+                    <p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut debitis at, vitae laborum nemo voluptatibus! Rerum aliquam cum veritatis quo quos, illo cumque optio suscipit.</p>
+                    <a href="https://localhost:44346/LoginHome/TestPost" class="blog-btn mt-3">Xem thêm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                </div>
+            </a>
+        </div>
+    </div>
+}

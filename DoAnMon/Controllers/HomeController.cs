@@ -67,7 +67,7 @@ namespace DoAnMon.Controllers
             else
             {
                 //Gán giá trị cho đối tượng được tạo mới (kh)
-                kh.TenDangNhap = tendn;
+                kh.TenTaiKhoan = tendn;
                 kh.MatKhau = matkhau;
                 kh.Email = email;
 
@@ -104,7 +104,7 @@ namespace DoAnMon.Controllers
             {
                 //Gán giá trị cho đối tượng được tạo mới (kh)
 
-                TaiKhoan kh = db.TaiKhoans.SingleOrDefault(n => n.TenDangNhap == tendn && n.MatKhau == matkhau);
+                TaiKhoan kh = db.TaiKhoans.SingleOrDefault(n => n.TenTaiKhoan == tendn && n.MatKhau == matkhau);
                 if (kh != null)
                 {
                     // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";

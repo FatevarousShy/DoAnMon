@@ -19,16 +19,22 @@ namespace DoAnMon.Controllers
 
             return View();
         }
-        private List<DeThi> DeThiMoi(int count)
+        private List<BoDe> DeThiMoi(int count)
         {
-            return db.DeThis.Take(count).ToList();
+            return db.BoDes.Take(count).ToList();
         }
         public ActionResult TestBank()
         {
             ViewBag.Message = "Trang Ngân Hàng Đề.";
-            var sachmoi = DeThiMoi(6);
-            return View(sachmoi);
+            var de = DeThiMoi(6);
+            return View(de);
         }
+        public ActionResult MucBoDe()
+        {
+            var bode = from cd in db.DanhMucBoDes select cd;
+            return View(bode);
+        }
+
         public ActionResult YourAccount()
         {
             ViewBag.Message = "Trang Tài Khoản.";

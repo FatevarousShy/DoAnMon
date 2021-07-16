@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="web" Class="WebTNDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-MG27H21\LOCAL;Initial Catalog=web;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="webConnectionString2" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.CauHoi" Member="CauHois">
-    <Type Name="CauHoi">
-      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NoiDungCauHoi" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
-      <Column Name="A" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
-      <Column Name="B" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
-      <Column Name="C" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
-      <Column Name="D" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
-      <Column Name="DapAnDung" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="CauHoi_DeThi" Member="DeThis" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="DeThi" />
+  <Table Name="dbo.BaiThi" Member="BaiThis">
+    <Type Name="BaiThi">
+      <Column Name="MaBaiThi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenBaiThi" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="AnhBia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayLam" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MaTTCN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="BaiThi_CTBaiThi" Member="CTBaiThis" ThisKey="MaBaiThi" OtherKey="MaBaiThi" Type="CTBaiThi" />
+      <Association Name="ThongTin_BaiThi" Member="ThongTin" ThisKey="MaTTCN" OtherKey="MaTTCN" Type="ThongTin" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ThongTin" Member="ThongTins">
@@ -22,52 +21,53 @@
       <Column Name="DienThoai" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
       <Column Name="NgaySinh" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="AnhCaNhan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="ThongTin_SuaDe" Member="SuaDes" ThisKey="MaTTCN" OtherKey="MaTTCN" Type="SuaDe" />
+      <Association Name="ThongTin_BaiThi" Member="BaiThis" ThisKey="MaTTCN" OtherKey="MaTTCN" Type="BaiThi" />
       <Association Name="TaiKhoan_ThongTin" Member="TaiKhoan" ThisKey="MaTK" OtherKey="MaTK" Type="TaiKhoan" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.CTSuaDe" Member="CTSuaDes">
-    <Type Name="CTSuaDe">
-      <Column Name="MaSuaDe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MaDe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NgaySua" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="DeThi_CTSuaDe" Member="DeThi" ThisKey="MaDe" OtherKey="MaDe" Type="DeThi" IsForeignKey="true" />
-      <Association Name="SuaDe_CTSuaDe" Member="SuaDe" ThisKey="MaSuaDe" OtherKey="MaSuaDe" Type="SuaDe" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.DeThi" Member="DeThis">
-    <Type Name="DeThi">
-      <Column Name="MaDe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenDe" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.BoDe" Member="BoDes">
+    <Type Name="BoDe">
+      <Column Name="MaBoDe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenBoDe" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="AnhBia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="NgaycapNhat" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MaPhan" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="DeThi_CTSuaDe" Member="CTSuaDes" ThisKey="MaDe" OtherKey="MaDe" Type="CTSuaDe" />
-      <Association Name="CauHoi_DeThi" Member="CauHoi" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="CauHoi" IsForeignKey="true" />
-      <Association Name="PhanThi_DeThi" Member="PhanThi" ThisKey="MaPhan" OtherKey="MaPhan" Type="PhanThi" IsForeignKey="true" />
+      <Column Name="MaDanhMucBoDe" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DanhMucBoDe_BoDe" Member="DanhMucBoDe" ThisKey="MaDanhMucBoDe" OtherKey="MaDanhMucBoDe" Type="DanhMucBoDe" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.PhanThi" Member="PhanThis">
-    <Type Name="PhanThi">
-      <Column Name="MaPhan" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenPhan" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
-      <Association Name="PhanThi_DeThi" Member="DeThis" ThisKey="MaPhan" OtherKey="MaPhan" Type="DeThi" />
+  <Table Name="dbo.CauHoi" Member="CauHois">
+    <Type Name="CauHoi">
+      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NoiDungCauHoi" Type="System.String" DbType="NVarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="A" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="B" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="C" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="D" Type="System.String" DbType="NVarChar(600)" CanBeNull="true" />
+      <Column Name="AnhCauHoi" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DapAnDung" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CauHoi_CTBaiThi" Member="CTBaiThis" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="CTBaiThi" />
     </Type>
   </Table>
-  <Table Name="dbo.SuaDe" Member="SuaDes">
-    <Type Name="SuaDe">
-      <Column Name="MaSuaDe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="MaTTCN" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NguoiSua" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
-      <Association Name="SuaDe_CTSuaDe" Member="CTSuaDes" ThisKey="MaSuaDe" OtherKey="MaSuaDe" Type="CTSuaDe" />
-      <Association Name="ThongTin_SuaDe" Member="ThongTin" ThisKey="MaTTCN" OtherKey="MaTTCN" Type="ThongTin" IsForeignKey="true" />
+  <Table Name="dbo.CTBaiThi" Member="CTBaiThis">
+    <Type Name="CTBaiThi">
+      <Column Name="MaBaiThi" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaCauHoi" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DapAn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="CauHoi_CTBaiThi" Member="CauHoi" ThisKey="MaCauHoi" OtherKey="MaCauHoi" Type="CauHoi" IsForeignKey="true" />
+      <Association Name="BaiThi_CTBaiThi" Member="BaiThi" ThisKey="MaBaiThi" OtherKey="MaBaiThi" Type="BaiThi" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DanhMucBoDe" Member="DanhMucBoDes">
+    <Type Name="DanhMucBoDe">
+      <Column Name="MaDanhMucBoDe" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDanhMucBoDe" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="DanhMucBoDe_BoDe" Member="BoDes" ThisKey="MaDanhMucBoDe" OtherKey="MaDanhMucBoDe" Type="BoDe" />
     </Type>
   </Table>
   <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
     <Type Name="TaiKhoan">
       <Column Name="MaTK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenDangNhap" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TenTaiKhoan" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="MatKhau" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="TaiKhoan_ThongTin" Member="ThongTins" ThisKey="MaTK" OtherKey="MaTK" Type="ThongTin" />
