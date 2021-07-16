@@ -32,7 +32,13 @@ namespace DoAnMon.Controllers
         public ActionResult MucBoDe()
         {
             var bode = from cd in db.DanhMucBoDes select cd;
-            return View(bode);
+            return PartialView(bode);
+        }
+
+        public ActionResult BoDeTheoMuc(int id)
+        {
+            var loaide = from s in db.BoDes where s.MaDanhMucBoDe == id select s;
+            return View(loaide);
         }
 
         public ActionResult YourAccount()
