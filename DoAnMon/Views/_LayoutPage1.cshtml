@@ -46,7 +46,7 @@
                         <ul class="navbar-nav ml-auto">
                             <li>@Html.ActionLink("Trang Chủ", "Index", "Home", new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Về Chúng Tôi", "About", "Home", new { @class = "nav-link" })</li>
-                            <li>@Html.ActionLink("Liên Lạc Chúng Tôi", "Contact", "Home", new { @class = "nav-link" })</li>
+                            <li>@Html.ActionLink("Liên hệ", "Contact", "Home", new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Đăng Nhập", "SignIn", "Home", new { @class = "nav-link" })</li>
                         </ul>
                     </div>
@@ -142,8 +142,7 @@
             <div class="container">
                 <div class="row footer-border">
                     <div class="col-lg-3 col-md-5 column pr-md-0">
-                        <h1><a href="index.html" class="footer-brand-logo"><span class="fa fa-pencil-square-o"></span> Literate</a></h1>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita commodi eum qui!!</p>
+                        <h1><a href="index.html" class="footer-brand-logo">Luyện Thi Lái Xe </a></h1>
                         <ul class="mt-4 contact">
                             <li>
                                 <p><span class="fa fa-phone" aria-hidden="true"></span> <a href="tel:+44-255-366-88">+44-255-366-88</a></p>
@@ -156,11 +155,10 @@
                     <div class="col-lg-2 col-md-4 col-sm-6 column mt-md-0 mt-5">
                         <h3>Luyện thi lái xe </h3>
                         <ul class="footer-gd-16">
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="about.html">Về chúng tôi</a></li>
-                            <li><a href="#courses.html">Thư viện</a></li>
-                            <li><a href="#blog.html">Thông báo</a></li>
-                            <li><a href="contact.html">Liên Hệ</a></li>
+                            <li>@Html.ActionLink("Trang Chủ", "Index", "Home")</li>
+                            <li>@Html.ActionLink("Về Chúng Tôi", "About", "Home")</li>
+                            <li>@Html.ActionLink("Liên hệ", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Đăng Nhập", "SignIn", "Home")</li>
                         </ul>
                     </div>
                 </div>

@@ -62,7 +62,6 @@
 
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                         <ul class="navbar-nav ml-auto">
-
                             <li>@Html.ActionLink("Trang Chủ Đăng Nhập", "LoginIndex", "LoginHome", new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Thông Tin Cá Nhân", "YourAccount", "LoginHome", new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Thư Viện Đề", "TestBank", "LoginHome", new { @class = "nav-link" })</li>
@@ -175,11 +174,10 @@
                     <div class="col-lg-2 col-md-4 col-sm-6 column mt-md-0 mt-5">
                         <h3>Luyện thi lái xe</h3>
                         <ul class="footer-gd-16">
-                            <li><a href="index.html">Trang chủ</a></li>
-                            <li><a href="about.html">Về chúng tôi</a></li>
-                            <li><a href="#courses.html">Thư viện</a></li>
-                            <li><a href="#blog.html">Thông báo</a></li>
-                            <li><a href="contact.html">Liên hệ</a></li>
+                            <li>@Html.ActionLink("Trang Chủ Đăng Nhập", "LoginIndex", "LoginHome")</li>
+                            <li>@Html.ActionLink("Thông Tin Cá Nhân", "YourAccount", "LoginHome")</li>
+                            <li>@Html.ActionLink("Thư Viện Đề", "TestBank", "LoginHome")</li>
+                            <li>@Html.ActionLink("Thi Trực Tuyến", "OnlineTest", "LoginHome")</li>
                         </ul>
                     </div>
                 </div>
