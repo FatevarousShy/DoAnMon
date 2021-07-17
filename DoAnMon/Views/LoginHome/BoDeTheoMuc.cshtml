@@ -1,19 +1,20 @@
-﻿@model IEnumerable<DoAnMon.Models.BoDe>
-
-
+﻿
 @{
-    ViewBag.Title = "TestBank";
+    ViewBag.Title = "BoDeTheoMuc";
     Layout = "~/Views/_LayoutPage2.cshtml";
 }
+
 <!-- contact breadcrumbs -->
 <nav id="breadcrumbs" class="breadcrumbs">
     <div class="container page-wrapper text-center">
         <div class="header-section">
             <h2 class="mb-2">Thư Viện Đề</h2>
         </div>
-        <a @Html.ActionLink("Trang chủ Đăng Nhập", "LoginIndex", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề</span>
+        <a href="index.html">Trang chủ đăng nhập</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề</span>
     </div>
 </nav>
+
+
 <!-- /contact breadcrumbs -->
 <!-- //index-block1 -->
 <section class="w3l-blog">
@@ -49,8 +50,6 @@
                             </div>
                         }
                     </div>
-
-                    <!-- pagination -->
                     <div class="pagination-wrapper mt-lg-5">
                         <ul class="page-pagination">
                             <li><span aria-current="page" class="page-numbers current">1</span></li>
@@ -67,7 +66,7 @@
                 <!-- right side bar -->
                 <div class="right-side-bar col-lg-4 pl-lg-5">
                     <aside class="posts p-4">
-                        @Html.Action("MucBoDe","LoginHome")
+                        @Html.Action("MucBoDe", "LoginHome")
                     </aside>
                     <aside class="posts p-4">
                         <h3 class="aside-title">Nội dung vừa cập nhật</h3>

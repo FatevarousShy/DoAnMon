@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<DoAnMon.Models.DanhMucBoDe>
-@{
-    ViewBag.Title = "MucBoDe";
-
-}
-
-
-
+<h3 class="aside-title">Tất cả danh mục</h3>
 @foreach (var mucBoDe in Model)
 {
-    @mucBoDe.TenDanhMucBoDe
-   
+    <ul class="category">
+        <li><a href="@Url.Action("BoDeTheoMuc","LoginHome",new { id = mucBoDe.MaDanhMucBoDe})"><span class="fa fa-angle-right">Bộ đề @mucBoDe.TenDanhMucBoDe</span></a></li>
+    </ul>
 }
+
 
