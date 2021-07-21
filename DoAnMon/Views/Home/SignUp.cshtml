@@ -4,67 +4,127 @@
     Layout = "~/Views/_LayoutPage1.cshtml";
 }
 <!-- contact breadcrumbs -->
-<table align="center">
-    <h2 style="text-align:center">ĐĂNG KÝ THÀNH VIÊN 1</h2>
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary(true)
-        <tr style="height:40px">
-            <td> Họ tên khách hàng:</td>
-            <td>
-                @Html.TextBox("HoTen")
-                @ViewData["Loi1"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Tên đăng nhật:</td>
-            <td>
-                @Html.TextBox("TaiKhoan")
-                @ViewData["Loi2"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td>  Mật khẩu:</td>
-            <td>
-                @Html.Password("Matkhau")
-                @ViewData["Loi3"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td>Mật khẩu nhậtr lại: </td>
-            <td>
-                @Html.Password("Matkhaunhatrlai")
-                @ViewData["Loi4"]
-            </td>
-        </tr>
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 class="mb-2">Tạo tài khoản</h2>
+        </div>
+        <a @Html.ActionLink("Trang chủ", "Index", "Home")</a><span class="breadcrumb_last" aria-current="page">Tạo tài khoản</span>
+    </div>
+</nav>
+<!-- /contact breadcrumbs -->
+<!-- index-block1 -->
+<div class="w3l-index1">
+    <div class="content1">
+        <div class="col-auto">
+            <!-- /SignUp-section -->
+            <section class="w3l-login-6">
+                <div class="login-hny">
+                    <div class="form-content">
+                        <div class="form-right">
+                            <div class="overlay">
+                                <div class="grid-info-form">
+                                    <h5>Xin chào</h5>
+                                    <h3>Bạn đã có tài khoản?</h3>
+                                    <p>
+                                        Trở về trang đăng nhập tại đây
+                                    </p>
+                                    <button class="btn btn-default read-more-1" type="submit">@Html.ActionLink("Đăng Nhập", "SignIn", "Home")</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-left">
+                            <div class="middle">
+                                <h4>Thông tin của bạn</h4>
+                                <p>Tạo tài khoản của bạn, hoàn toàn miễn phí.</p>
+                            </div>
+                            <form action="#" method="post" class="signin-form">
+                                <div class="form-input">
+                                    <h4>Họ Tên</h4>
+
+                                    <td>
+                                        @Html.TextBox("HoTen")
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi1"]</h4>
+                                    </td>
+                                </div>
+
+                                <div class="form-input">
+                                    <h4>Tài Khoản</h4>
+
+                                    <td>
+
+                                        @Html.TextBox("TaiKhoan")
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi2"]</h4>
+                                    </td>
+                                </div>
+
+                                <div class="form-input">
+                                    <h4>Mật Khẩu</h4>
+                                    <td>
+
+                                        @Html.Password("Matkhau")
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi3"]</h4>
+                                    </td>
+                                </div>
+
+                                <div class="form-input">
+                                    <h4>Nhập Lại Mật Khẩu</h4>
+
+                                    <td>
+
+                                        @Html.Password("Matkhaunhatrlai")
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi4"]</h4>
+                                    </td>
+                                </div>
+
+                                <div class="form-input">
+                                    <h4>Email</h4>
+
+                                    <td>
+
+                                        @Html.TextBox("Email")
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi5"]</h4>
+                                    </td>
+                                </div>
+
+                                <div class="form-input">
+                                    <h4>Điên Thoại</h4>
+
+                                    <td>
+
+                                        @Html.TextBox("Dienthoai")
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi6"]</h4>
+                                    </td>
+                                </div>
+
+                                <div class="form-input">
+                                    <h4>Ngày sinh</h4>
+
+                                    <td>
+
+                                        <input type="date" name="Ngaysinh" />
+                                        <h4 class="alert-danger wthree-field">@ViewData["Loi7"]</h4>
+                                    </td>
+                                </div>
 
 
-        <tr style="height:40px">
-            <td> Email:</td>
-            <td>
-                @Html.TextBox("Email")
-                @ViewData["Loi5"]
-            </td>
-        </tr>
 
-        <tr style="height:40px">
-            <td>Điện thoại:</td>
-            <td>
-                @Html.TextBox("Dienthoai")
-                @ViewData["Loi6"]
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td> Ngày sinh :</td>
-            <td>
-                <input type="date" name="Ngaysinh" />
-            </td>
-        </tr>
-        <tr style="height:40px">
-            <td></td>
-            <td>
-                <input type="Submit" value="Đăng ký" />
-            </td>
-        </tr>
-    }
-</table>
+                                <label class="container">
+                                    <input type="checkbox"> <span class="checkmark"></span>
+                                    Bạn đồng ý với <a href="#">quy định</a> và <a href="#">điều khoản </a>của chúng tôi
+                                </label>
+                                <button class="btn">Tạo tài khoản</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- //SignUp-section -->
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!-- //index-block1 -->
+    </body>
+<!-- //Body -->

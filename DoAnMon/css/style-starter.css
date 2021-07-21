@@ -3101,8 +3101,8 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #212529;
     text-align: left;
+    color: #dc8592;
     background-color: #fff;
 }
 
@@ -19033,7 +19033,6 @@ h2.resp-accordion:first-child {
     .w3l-login-6 .form-content h3 {
         font-size: 42px;
         line-height: 52px;
-        color: #fff;
         margin-top: 15px;
     }
 
@@ -19129,7 +19128,6 @@ h2.resp-accordion:first-child {
 
     .w3l-login-6 .middle h4 {
         font-size: 34px;
-        color: #fff;
         font-weight: 400;
         text-transform: capitalize;
         line-height: 40px;
@@ -19230,10 +19228,10 @@ h2.resp-accordion:first-child {
     left: 0;
     height: 21px;
     width: 21px;
-    background-color: #BECED0;
+    background-color: snow;
 }
 
-.w3l-login-6 .container:hover input ~ .checkmark {
+.w3l-login-6 .container :hover input ~ .checkmark {
     background-color: #BECED0;
 }
 
