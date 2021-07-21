@@ -9,7 +9,7 @@ namespace DoAnMon.Controllers
 {
     public class HomeController : Controller
     {
-        WebTNDataContext db = new WebTNDataContext();
+        WEBTNDataContext db = new WEBTNDataContext();
 
         public ActionResult Index()
         {
@@ -46,32 +46,54 @@ namespace DoAnMon.Controllers
         }
         [HttpPost]
 
-        public ActionResult SignUp(FormCollection collection, TaiKhoan kh)
+        public ActionResult SignUp(FormCollection collection, NguoiDung kh)
         {
-            var tendn = collection["TenDN"];
-            var matkhau = collection["MatKhau"];
+            var hoten = collection["HoTen"];
+            var tendn = collection["Taikhoan"];
+            var matkhau = collection["Matkhau"];
+            var matkhaunhaplai = collection["Matkhaunhaplai"];
             var email = collection["Email"];
-
-            if (String.IsNullOrEmpty(tendn))
+            var dienthoai = collection["Dienthoai"];
+            var ngaysinh = String.Format("{0:MM/dd/yyyy}", collection["Ngaysinh"]);
+            if (String.IsNullOrEmpty(hoten))
             {
-                ViewData["Loi1"] = "Phai Nhap Ten Dang Nhap";
+                ViewData["Loi1"] = "Họ tên khách hàng không được để trống";
+            }
+            else if (String.IsNullOrEmpty(tendn))
+            {
+                ViewData["Loi2"] = "Phải nhập tên đăng nhập";
             }
             else if (String.IsNullOrEmpty(matkhau))
             {
-                ViewData["Loi2"] = "Phai nhap mat khau";
+                ViewData["Loi3"] = "Phải nhập mật khẩu";
             }
-            if (string.IsNullOrEmpty(email))
+            else if (String.IsNullOrEmpty(matkhaunhaplai))
             {
-                ViewData["loi3"] = "Email khong duoc bo trong";
+                ViewData["Loi4"] = "Phải nhập lại mật khẩu";
+            }
+
+
+            if (String.IsNullOrEmpty(email))
+            {
+                ViewData["Loi5"] = "Email không được bỏ trống";
+            }
+
+            if (String.IsNullOrEmpty(dienthoai))
+            {
+                ViewData["Loi6"] = "Phải nhập điện thoai";
             }
             else
             {
                 //Gán giá trị cho đối tượng được tạo mới (kh)
-                kh.TenDangNhap = tendn;
-                kh.MatKhau = matkhau;
-                kh.Email = email;
 
-                db.TaiKhoans.InsertOnSubmit(kh);
+                kh.HoTen = hoten;
+                kh.Taikhoan = tendn;
+                kh.Matkhau = matkhau;
+                kh.Email = email;
+                kh.Dienthoai = dienthoai;
+                kh.Ngaysinh = DateTime.Parse(ngaysinh);
+
+                db.NguoiDungs.InsertOnSubmit(kh);
                 db.SubmitChanges();
                 return RedirectToAction("SignIn");
             }
@@ -104,7 +126,7 @@ namespace DoAnMon.Controllers
             {
                 //Gán giá trị cho đối tượng được tạo mới (kh)
 
-                TaiKhoan kh = db.TaiKhoans.SingleOrDefault(n => n.TenDangNhap == tendn && n.MatKhau == matkhau);
+                NguoiDung kh = db.NguoiDungs.SingleOrDefault(n => n.Taikhoan == tendn && n.Matkhau == matkhau);
                 if (kh != null)
                 {
                     // ViewBag.Thongbao = "Chúc mừng đăng nhập thành công";

@@ -130,10 +130,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\WebTN.designer.cs">
+    <Compile Include="Models\WEBTN.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>WebTN.dbml</DependentUpon>
+      <DependentUpon>WEBTN.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -231,13 +231,13 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Models\WebTN.dbml">
+    <Content Include="Models\WEBTN.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>WebTN.designer.cs</LastGenOutput>
+      <LastGenOutput>WEBTN.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Models\WebTN.dbml.layout">
-      <DependentUpon>WebTN.dbml</DependentUpon>
+    <None Include="Models\WEBTN.dbml.layout">
+      <DependentUpon>WEBTN.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -270,7 +270,6 @@
     <Content Include="Views\_LayoutPage2.cshtml" />
     <Content Include="Views\LoginHome\TestBank.cshtml" />
     <Content Include="Views\LoginHome\LoginIndex.cshtml" />
-    <Content Include="Views\LoginHome\YourAccount.cshtml" />
     <Content Include="Views\LoginHome\OnlineTest.cshtml" />
     <Content Include="Views\LoginHome\TestPost.cshtml" />
     <Content Include="Views\Home\Faq.cshtml" />

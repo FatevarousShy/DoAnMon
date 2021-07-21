@@ -10,7 +10,7 @@ namespace DoAnMon.Controllers
     public class LoginHomeController : Controller
 
     {
-        WebTNDataContext db = new WebTNDataContext();
+        WEBTNDataContext db = new WEBTNDataContext();
 
         // GET: LoginHome
         public ActionResult LoginIndex()
@@ -19,6 +19,7 @@ namespace DoAnMon.Controllers
 
             return View();
         }
+
         private List<DeThi> DeThiMoi(int count)
         {
             return db.DeThis.Take(count).ToList();
@@ -35,6 +36,15 @@ namespace DoAnMon.Controllers
 
             return View();
         }
+
+        /*
+        public ActionResult Details(int id)
+        {
+            var ThongTin = from s in data.ThongTins
+                           where s.MaTK == id
+                           select s;
+            return View(ThongTin.Single());
+        }*/
         public ActionResult OnlineTest()
         {
             ViewBag.Message = "Trang Kiểm Tra Trực Tuyến.";
