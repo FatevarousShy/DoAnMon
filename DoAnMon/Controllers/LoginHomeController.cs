@@ -19,7 +19,7 @@ namespace DoAnMon.Controllers
 
             return View();
         }
-
+        /*
         private List<DeThi> DeThiMoi(int count)
         {
             return db.DeThis.Take(count).ToList();
@@ -35,16 +35,8 @@ namespace DoAnMon.Controllers
             ViewBag.Message = "Trang Tài Khoản.";
 
             return View();
-        }
-
-        /*
-        public ActionResult Details(int id)
-        {
-            var ThongTin = from s in data.ThongTins
-                           where s.MaTK == id
-                           select s;
-            return View(ThongTin.Single());
         }*/
+
         public ActionResult OnlineTest()
         {
             ViewBag.Message = "Trang Kiểm Tra Trực Tuyến.";
