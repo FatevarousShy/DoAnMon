@@ -20674,3 +20674,7 @@ img {
 img {
     border: 0;
 }
+/*--MenuTrang--*/
+.MenuTrang li {
+    display: inline;
+}

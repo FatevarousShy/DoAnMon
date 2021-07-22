@@ -9,6 +9,7 @@ namespace DoAnMon.Controllers
 {
     public class GioDeController : Controller
     {
+
         // GET: GioDe
         public ActionResult Index()
         {
@@ -119,5 +120,55 @@ namespace DoAnMon.Controllers
             lsGiode.Clear();
             return RedirectToAction("TestBank", "LoginHome");
         }
+
+        [HttpGet]
+        public ActionResult DatDe()
+        {
+            if (Session["Taikhoan"] == null || Session["Taikhoan"].ToString() == "")
+            {
+                return RedirectToAction("SignIn", "Home");
+            }
+            if (Session["Giode"] == null)
+            {
+                return RedirectToAction("TestBank", "LoginHome");
+            }
+            List<Giode> lsGiode = LayGiode();
+            ViewBag.TongSL = TongSoLuong();
+            ViewBag.Tongtien = TongTien();
+            return View(lsGiode);
+        }
+
+        public ActionResult DatDe(FormCollection collection)
+        {
+            DonHang dh = new DonHang();
+            NguoiDung nd = (NguoiDung)Session["Taikhoan"];
+            List<Giode> gd = LayGiode();
+            dh.MaND = nd.MaND;
+            dh.Ngaydat = DateTime.Now;
+            var ngaygiao = string.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
+            dh.Ngaygiao = DateTime.Parse(ngaygiao);
+            dh.Tinhtranggiaohang = false;
+            dh.Dathanhtoan = false;
+            db.DonHangs.InsertOnSubmit(dh);
+            db.SubmitChanges();
+            foreach (var de in gd)
+            {
+                ChiTietDonHang ctdh = new ChiTietDonHang();
+                ctdh.MaDonHang = dh.MaDonHang;
+                ctdh.MaDe = de.iMaDe;
+                ctdh.Soluong = de.iSoLuong;
+                ctdh.Dongia = (decimal)de.dDongia;
+                db.ChiTietDonHangs.InsertOnSubmit(ctdh);
+            }
+            db.SubmitChanges();
+            Session["Giode"] = null;
+            return RedirectToAction("XacNhanDonHang", "Giode");
+        }
+
+        public ActionResult XacNhanDonHang()
+        {
+            return View();
+        }
+
     }
 }

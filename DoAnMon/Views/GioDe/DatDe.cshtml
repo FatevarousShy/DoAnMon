@@ -1,0 +1,79 @@
+﻿@using DoAnMon.Models
+@model List<Giode>
+@{
+    ViewBag.Title = "DatDe";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+<h2>THÔNG TIN HÀNG HÓA</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Mã Đề</td>
+        <td> Tên Đề</td>
+        <td> Ảnh bìa</td>
+        <td> Số lượng</td>
+        <td> Đơn giá</td>
+        <td> Thành tiền</td>
+
+    </tr>
+    @foreach (var de in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@de.iMaDe </td>
+            <td>@de.sTenDe </td>
+            <td><img src="~/img/@de.sAnhbia" </td>
+            @using (Html.BeginForm("CapNhatGiode", "Giode", new { @iMaSP = de.iMaDe }))
+            {
+                <td>
+                    @de.iSoLuong
+                </td>
+                <td>@String.Format("{0:0,0}", de.dDongia) </td>
+                <td>@String.Format("{0:0,0}", de.dthanhtien) </td>
+            }
+        </tr>
+    }
+    <tr style="font-weight: bold; text-align:right; color:brown">
+        <td colspan="3">Số lượng đề: @ViewBag.TongSL</td>
+        <td colspan="3">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VNĐ</td>
+    </tr>
+    <tr style="font-weight: bold; text-align:right; color:coral">
+        <td colspan="6">
+            @Html.ActionLink("Xóa Giỏ Đề", "XoaTatCaGiode")
+        </td>
+    </tr>
+</table>
+
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    NguoiDung ND = (NguoiDung)Session["Taikhoan"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Họ tên người dùng:</td>
+            <td style="font-weight:bold"> @ND.HoTen</td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địện thoại:</td>
+            <td style="font-weight:bold"> @ND.Dienthoai</td>
+        </tr>
+
+        <tr style="height:40px">
+            <td> Ngày đặt:</td>
+            <td style="font-weight:bold"> @DateTime.Now.ToShortDateString()</td>
+        </tr>
+        <tr style="height:40px">
+            <td> Ngày giao hàng:</td>
+            <td style="font-weight:bold">
+                <input type="date" name="Ngaygiao" />
+            </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                <input type="submit" value="ĐỒNG Ý ĐẶT HÀNG" />
+            </td>
+        </tr>
+    }
+</table>

@@ -1,5 +1,6 @@
-﻿@model IEnumerable<DoAnMon.Models.De>
-
+﻿@using PagedList.Mvc;
+@using DoAnMon.Models;
+@model PagedList.PagedList<De>
 @{
     ViewBag.Title = "TestBank";
     Layout = "~/Views/_LayoutPage2.cshtml";
@@ -50,13 +51,14 @@
                 <!-- pagination -->
                 <div class="pagination-wrapper mt-lg-5">
                     <ul class="page-pagination">
-                        <li><span aria-current="page" class="page-numbers current">1</span></li>
-                        <li><a class="page-numbers" href="#url">2</a></li>
-                        <li><a class="page-numbers" href="#url">3</a></li>
-                        <li><a class="page-numbers" href="#url">4</a></li>
-                        <li><a class="page-numbers" href="#url">....</a></li>
-                        <li><a class="page-numbers" href="#url">15</a></li>
-                        <li><a class="next" href="#url"><span class="fa fa-angle-right"></span></a></li>
+                        <li>
+                            <span aria-current="page" class="page-numbers current">
+                                <div class="MenuTrang">
+                                    @Html.PagedListPager(Model, Page => Url.Action("TestBank", new { page = Page }))
+                                </div>
+                                Trang @(Model.PageCount<Model.PageCount?0:Model.PageNumber)/@Model.PageCount
+                            </span>
+                        </li>
                     </ul>
                 </div>
             </div>

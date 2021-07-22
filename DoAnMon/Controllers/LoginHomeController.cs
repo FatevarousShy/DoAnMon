@@ -1,4 +1,6 @@
 ﻿using DoAnMon.Models;
+using PagedList;
+using PagedList.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,11 +26,14 @@ namespace DoAnMon.Controllers
         {
             return db.Des.OrderByDescending(a => a.Ngaycapnhat).Take(count).ToList();
         }
-        public ActionResult TestBank()
+        public ActionResult TestBank(int? page)
         {
-            ViewBag.Message = "Trang Ngân Hàng Đề.";
-            var de = Demoi(6);
-            return View(de);
+            int pagesize = 5;
+            int pagenum = (page ?? 1);
+
+            var de = Demoi(15);
+            return View(de.ToPagedList(pagenum, pagesize));
+
         }
 
         public ActionResult BoDe()

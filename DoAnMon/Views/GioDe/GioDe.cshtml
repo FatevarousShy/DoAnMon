@@ -38,6 +38,11 @@
         <td colspan="4">Số lượng đề: @ViewBag.TongSoLuong</td>
         <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VNĐ</td>
     </tr>
+    <tr style="font-weight: bold; text-align:center; color:chocolate">
+        <td colspan="9">
+            @Html.ActionLink("ĐẶT ĐỀ", "Datde", "GioDe")
+        </td>
+    </tr>
     <tr style="font-weight: bold; text-align:right; color:coral">
         <td colspan="9">
             @Html.ActionLink("Xóa Giỏ Đề", "XoaTatCaGiode")

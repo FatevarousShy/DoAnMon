@@ -284,6 +284,8 @@
     <Content Include="Views\LoginHome\ChiTietDe.cshtml" />
     <Content Include="Views\GioDe\GioDe.cshtml" />
     <Content Include="Views\GioDe\GioDePartical.cshtml" />
+    <Content Include="Views\GioDe\DatDe.cshtml" />
+    <Content Include="Views\GioDe\XacNhanDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
