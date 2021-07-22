@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "GioDe";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+<h2 style="text-align:center">THÔNG TIN GIỎ ĐỀ</h2>
+<table align="center" border="1">
+    <tr style="text-align:center; font-weight:bold">
+        <td> Mã Đề</td>
+        <td> Tên Đề</td>
+        <td> Ảnh bìa</td>
+        <td> Số lượng</td>
+        <td> Đơn giá</td>
+        <td> Thành tiền</td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+        <td width="50px"></td>
+    </tr>
+    @foreach (var de in Model)
+    {
+        <tr style="text-align:center; font-weight:bold">
+            <td>@de.iMaDe </td>
+            <td>@de.sTenDe </td>
+            <td><img src="~/img/@de.sAnhbia" </td>
+            @using (Html.BeginForm("CapNhatGiode", "Giode", new { @iMaSP = de.iMaDe }))
+            {
+                <td>
+                    <input type="number" min="1" name="txtSoLuong" value="@de.iSoLuong" style="background-color:greenyellow" />
+                </td>
+                <td>@String.Format("{0:0,0}", de.dDongia) </td>
+                <td>@String.Format("{0:0,0}", de.dthanhtien) </td>
+                <td><a href="@Url.Action("ChiTietDe", "LoginHome", new { id = de.iMaDe})"> Chi Tiết</a></td>
+                <td> @Html.ActionLink("Xóa", "XoaGiode", new { @iMaSP = de.iMaDe })</td>
+                <td> <input type="submit" value="Cập Nhật" /> </td>
+            }
+        </tr>
+    }
+    <tr style="font-weight: bold; text-align:right; color:brown">
+        <td colspan="4">Số lượng đề: @ViewBag.TongSoLuong</td>
+        <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VNĐ</td>
+    </tr>
+    <tr style="font-weight: bold; text-align:right; color:coral">
+        <td colspan="9">
+            @Html.ActionLink("Xóa Giỏ Đề", "XoaTatCaGiode")
+        </td>
+    </tr>
+</table>

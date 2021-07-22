@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<DoAnMon.Models.De>
-
 @{
-    ViewBag.Title = "TestBank";
+    ViewBag.Title = "ThuVienDe";
     Layout = "~/Views/_LayoutPage2.cshtml";
 }
-<!-- contact breadcrumbs -->
 <nav id="breadcrumbs" class="breadcrumbs">
     <div class="container page-wrapper text-center">
         <div class="header-section">
-            <h2 cl="mb-2">Thư Viện Đề</h2>
+            <h2 cl="mb-2">Trang Chủ Đăng Nhập</h2>
         </div>
-        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề</span>
+        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> >> <span class="breadcrumb_last" aria-current="page">Trang Chủ Đăng Nhập</span>
     </div>
 </nav>
 <!-- /contact breadcrumbs -->
@@ -29,17 +27,17 @@
                                     <div class="blg-img">
 
                                     </div>
-                                    <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })">
+                                    <a href="@Url.Action("ChiTietDe","LoginHome", new { id=dethi.MaDe })">
                                         <div class="btom-cont">
                                             <h5 class="card-title"> <span>@dethi.TenDe</span></h5>
                                             <ul class="admin-post">
-                                                <img src="~/img/@dethi.Anhbia" alt="@dethi.TenDe" width="100" />
+                                                <img src="~/img/@dethi.Anhbia " alt="@dethi.TenDe" width="100" />
                                                 <li>
-                                                    <span class="fa fa-clock-o">@dethi.Ngaycapnhat</span>
+                                                    <span class="fa fa-clock-o"></span>
                                                 </li>
 
                                             </ul>
-                                            <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })" class="blog-btn mt-3">Xem thêm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                                            <a href="@Url.Action("ChiTietDe","LoginHome", new { id=dethi.MaDe })" class="blog-btn mt-3">Xem thÃªm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
                                         </div>
                                     </a>
                                 </div>
@@ -69,7 +67,7 @@
 
                 </aside>
                 <aside class="posts p-6">
-                    <h3 class="aside-title">Nội dung vừa cập nhật</h3>
+                    <h3 class="aside-title">Ná»™i dung vá»«a cáº­p nháº­t</h3>
                     <div class="posts-grids">
                         <div class="posts-grid-inner">
                             <div class="posts-grid-left pr-0">
@@ -79,7 +77,7 @@
                             </div>
                             <div class="posts-grid-right">
                                 <h4>
-                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bộ đề A1 - Đề 1</a>
+                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bá»™ Ä‘á» A1 - Äá» 1</a>
                                 </h4>
                                 <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
                             </div>
@@ -92,7 +90,7 @@
                             </div>
                             <div class="posts-grid-right">
                                 <h4>
-                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bộ đề A1 - Đề 2</a>
+                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bá»™ Ä‘á» A1 - Äá» 2</a>
                                 </h4>
                                 <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
                             </div>
@@ -105,7 +103,7 @@
                             </div>
                             <div class="posts-grid-right">
                                 <h4>
-                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bộ đề A1 - Đề 5</a>
+                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bá»™ Ä‘á» A1 - Äá» 5</a>
                                 </h4>
                                 <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
                             </div>
@@ -118,3 +116,5 @@
         </div>
     </div>
 </section>
+
+
