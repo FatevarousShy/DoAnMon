@@ -1,0 +1,58 @@
+﻿@using DoAnMon.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DoAnMon.Models.BoDe>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "BoDe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ BỘ ĐỀ</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "Thembode")
+</p>
+<table class="table">
+    <tr>
+        <th style="width:200px">  Tên Bộ Đề </th>
+        <th style="width:200px">  </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenBoDe)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Suabode", new { id = item.MaBoDe }) |
+                @Html.ActionLink("Chi Tiết", "Chitietbode", new { id = item.MaBoDe }) |
+                @Html.ActionLink("Xóa ", "Xoabode", new { id = item.MaBoDe })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("Bode", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

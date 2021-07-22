@@ -1,0 +1,81 @@
+﻿@model DoAnMon.Models.De
+
+@{
+    ViewBag.Title = "Xoade";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>XÁC NHẬN THÔNG TIN SÁCH CẦN XÓA</h2>
+
+<h3>Bạn quyết định xóa?</h3>
+<div>
+    <h4>De</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Giaban)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giaban)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ThôngTin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ThôngTin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anhbia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anhbia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaycapnhat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soluongton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaBoDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaBoDe)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở vể", "De")
+        </div>
+    }
+</div>
