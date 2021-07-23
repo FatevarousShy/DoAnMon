@@ -279,5 +279,14 @@ namespace DoAnMon.Controllers
             }
             return View(bode);
         }
+        ////--------
+        ///
+        public ActionResult Nguoidung(int? page)
+        {
+            int pageNumber = (page ?? 1);
+            int pageSize = 7;
+            //return View(db.Des.ToList());
+            return View(db.NguoiDungs.ToList().OrderBy(n => n.MaND).ToPagedList(pageNumber, pageSize));
+        }
     }
 }

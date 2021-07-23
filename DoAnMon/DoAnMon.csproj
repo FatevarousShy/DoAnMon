@@ -286,6 +286,7 @@
     <Content Include="Views\Admin\Thembode.cshtml" />
     <Content Include="Views\Admin\Chitietbode.cshtml" />
     <Content Include="Views\Admin\Xoabode.cshtml" />
+    <Content Include="Views\Admin\Nguoidung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

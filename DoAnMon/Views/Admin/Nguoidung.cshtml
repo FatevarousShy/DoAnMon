@@ -1,0 +1,70 @@
+﻿@using DoAnMon.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DoAnMon.Models.NguoiDung>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Nguoidung";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Nguoidung</h2>
+
+<table class="table">
+    <tr>
+        <th style="width:200px">  Họ Tên </th>
+        <th style="width:100px">  Tài Khoản  </th>
+        <th style="width:300px">  Mật Khẩu    </th>
+        <th style="width:120px">  Email  </th>
+        <th style="width:150px">  ĐIện thoại </th>
+        <th style="width:120px">  Ngày sinh </th>
+        <th style="width:200px">  </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Taikhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Matkhau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dienthoai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaysinh)
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("De", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
