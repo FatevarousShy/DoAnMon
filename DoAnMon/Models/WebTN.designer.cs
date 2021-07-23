@@ -60,7 +60,7 @@ namespace DoAnMon.Models
     #endregion
 		
 		public WEBTNDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLTracNghiemConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLTracNghiemConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

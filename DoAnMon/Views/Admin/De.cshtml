@@ -20,18 +20,22 @@
 }
 
 <h2>QUẢN LÝ ĐỀ</h2>
+
 <p>
-    @Html.ActionLink("THÊM MỚI", "Themmoide")
+    @Html.ActionLink("Thêm", "ThemmoiDe")
 </p>
-<table class="table" border="1">
+<table class="table">
+
     <tr>
         <th style="width:200px">  Tên Đề </th>
-        <th style="width:100px">  Giá Bán  </th>
-        <th style="width:300px">  Thông Tin   </th>
-        <th style="width:120px">  Ảnh Bìa  </th>
+        <th style="width:100px">  Giá bán  </th>
+        <th style="width:300px">  Thông Tin    </th>
+        <th style="width:120px">  Ảnh bìa  </th>
         <th style="width:150px">  Ngày cập nhật </th>
         <th style="width:120px">  SL.Tồn </th>
+        <th style="width:120px">  Tên Bộ Đề   </th>
         <th style="width:200px">  </th>
+
     </tr>
 
     @foreach (var item in Model)
@@ -44,10 +48,10 @@
                 @Html.DisplayFor(modelItem => item.Giaban)
             </td>
             <td>
-                @Truncate(item.ThôngTin, 100)
+                @Html.DisplayFor(modelItem => item.ThôngTin)
             </td>
             <td>
-                <img src="@Url.Content("~/Hinhsanpham/"+  item.Anhbia)" width="120px" />
+                <img src="@Url.Content("~/Anhbia/"+  item.Anhbia)" width="120px" />
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Ngaycapnhat)
@@ -56,16 +60,18 @@
                 @Html.DisplayFor(modelItem => item.Soluongton)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BoDe.TenBoDe)
+                @Html.DisplayFor(modelItem => item.MaBoDe)
             </td>
             <td>
-                @Html.ActionLink("Sửa", "Suade", new { id = item.MaDe }) |
+                
                 @Html.ActionLink("Chi tiết", "Chitietde", new { id = item.MaDe }) |
                 @Html.ActionLink("Xóa", "Xoade", new { id = item.MaDe })
             </td>
         </tr>
     }
+
 </table>
+
 
 Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
 <div class="MenuTrang">
@@ -77,4 +83,3 @@ Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCo
         display: inline;
     }
 </style>
-
