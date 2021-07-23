@@ -1,17 +1,15 @@
-﻿@using PagedList.Mvc;
-@using DoAnMon.Models;
-@model PagedList.PagedList<De>
+﻿@model IEnumerable<DoAnMon.Models.De>
 @{
-    ViewBag.Title = "TestBank";
+    ViewBag.Title = "DeTheoBoDe";
     Layout = "~/Views/_LayoutPage2.cshtml";
 }
 <!-- contact breadcrumbs -->
 <nav id="breadcrumbs" class="breadcrumbs">
     <div class="container page-wrapper text-center">
         <div class="header-section">
-            <h2 cl="mb-2">Thư Viện Đề</h2>
+            <h2 cl="mb-2">Thư Viện Đề Theo Bộ Đề</h2>
         </div>
-        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề</span>
+        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề Theo Bộ Đề</span>
     </div>
 </nav>
 <!-- /contact breadcrumbs -->
@@ -43,43 +41,28 @@
                             </div>
                         }
                     </div>
-                    <!-- pagination -->
-                    <div class="pagination-wrapper mt-lg-5">
-                        <ul class="page-pagination">
-                            <li>
-                                <span aria-current="page" class="page-numbers current">
-                                    Trang @(Model.PageCount<Model.PageCount?0:Model.PageNumber)/@Model.PageCount
-                                    <div class="MenuTrang">
-                                        @Html.PagedListPager(Model, Page => Url.Action("TestBank", new { page = Page }))
-                                    </div>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+                <!-- pagination -->
                 <!-- left side blog post content -->
                 <!-- right side bar -->
                 <div class="right-side-bar col-lg-4 pl-lg-5">
                     <aside class="posts p-6">
-
                         @Html.Action("BoDe", "LoginHome")
-
                     </aside>
                     <aside class="posts p-6">
                         <h3 class="aside-title">Nội dung vừa cập nhật</h3>
-                        @foreach (var dethi in Model)
-                        {
-                            <div class="posts-grids">
-                                <div class="posts-grid-right">
-
-                                    <h4>
-                                        <a href="@Url.Action("ChiTietDe", "LoginHome", new { id = dethi.MaDe })" class="text-bl">Đề Thi số - @dethi.MaDe</a>
-                                    </h4>
-                                    <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
-                                </div>
-                            </div>
-                        }
-                        </aside>
+                                @foreach (var dethi in Model)
+                                {
+                                    <div class="posts-grids">
+                                        <div class="posts-grid-right">
+                                            <h4>
+                                                <a href="@Url.Action("ChiTietDe", "LoginHome", new { id = dethi.MaDe })" class="text-bl">Đề Thi số - @dethi.MaDe</a>
+                                            </h4>
+                                            <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
+                                        </div>
+                                    </div>
+                                }
+                    </aside>
                 </div>
                 <!-- //right side bar -->
             </div>

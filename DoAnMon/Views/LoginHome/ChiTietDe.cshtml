@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "ChiTietDe";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+}
+<!-- contact breadcrumbs -->
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Thông Tin Đề</h2>
+        </div>
+        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thông Tin Đề</span>
+    </div>
+</nav>
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <div class="container pb-lg-3">
+            <div class="row">
+                <!-- left side blog post content -->
+                <div class="blog-posts col-lg-8 pr-lg-0">
+                    <aside class="row">
+                        <aside class="col">
+                            <img class="full-image" src="~/images/@Model.Anhbia" />
+                        </aside>
+                        <aside class="col">
+                            <h4 style="font-weight: bold; color:orangered">Tên đề: @Model.TenDe</h4>
+                            <p style="text-align:justify"><span style="font-weight:bold">Thông tin: </span>@Model.ThôngTin</p>
+                            <p style="font-weight:bold">Giá bán:<span style="color:red;font-size:16pt"> @Model.Giaban VNĐ</span></p>
+                        </aside>
+                    </aside>
+                </div>
+                <!-- pagination -->
+                <!-- left side blog post content -->
+                <!-- right side bar -->
+                <div class="right-side-bar col-lg-4 pl-lg-5">
+                    <aside class="posts p-6">
+                        <h3 class="aside-title"> Bộ Đề </h3>
+
+                        <div class="list-group">
+                            <a onclick="ThongBaoDatHangFunction()" href="@Url.Action("themGiode", "GioDe", new {@iMaDe = Model.MaDe, @stURL = Request.Url.ToString() })" class="list-group-item"> Đặt Mua </a>
+                            <script>
+                                function ThongBaoDatHangFunction() {
+                                    alert("Đã Thêm Hàng Vào Giỏ!");
+                                }
+                            </script>
+                        </div>
+
+                        <div class="list-group">
+                            <a class="list-group-item" href="@Url.Action("LoginIndex", "LoginHome")"> Trở Về Trang Chủ</a>
+                        </div>
+
+                        <div class="list-group">
+                            <a class="list-group-item" href="@Url.Action("TestBank", "LoginHome")"> Trở Về Trang Thư Viện Đề</a>
+                        </div>
+                    </aside>
+                </div>
+                <!-- //right side bar -->
+            </div>
+        </div>
+    </div>
+</section>

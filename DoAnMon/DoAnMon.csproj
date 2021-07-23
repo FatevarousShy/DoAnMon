@@ -126,11 +126,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GioDeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Giode.cs" />
     <Compile Include="Models\WEBTN.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -185,12 +187,19 @@
     <Content Include="images\b72.jpg" />
     <Content Include="images\banner.jpg" />
     <Content Include="images\banner1.jpg" />
+    <Content Include="images\Blog-image-2020-04-07%402x.png" />
     <Content Include="images\cauliet14.jpg" />
     <Content Include="images\cauliet19.jpg" />
     <Content Include="images\cauliet3.jpg" />
     <Content Include="images\check.png" />
+    <Content Include="images\de01.png" />
     <Content Include="images\de02.jpg" />
     <Content Include="images\de03.png" />
+    <Content Include="images\de04.jpg" />
+    <Content Include="images\de05.png" />
+    <Content Include="images\de06.png" />
+    <Content Include="images\de07.jpg" />
+    <Content Include="images\de08.jpg" />
     <Content Include="images\join.jpg" />
     <Content Include="images\logo1.png" />
     <Content Include="images\logo2.png" />
@@ -205,6 +214,7 @@
     <Content Include="images\s4.jpg" />
     <Content Include="images\s5.jpg" />
     <Content Include="images\s6.jpg" />
+    <Content Include="images\shopping-cart.png" />
     <Content Include="images\stat.jpg" />
     <Content Include="images\stat2.jpg" />
     <Content Include="images\tce5h9e87mu61 %282%29.png" />
@@ -287,6 +297,13 @@
     <Content Include="Views\Admin\Xoabode.cshtml" />
     <Content Include="Views\Admin\Nguoidung.cshtml" />
     <Content Include="Views\Admin\Thembode.cshtml" />
+    <Content Include="Views\LoginHome\BoDe.cshtml" />
+    <Content Include="Views\LoginHome\DeTheoBoDe.cshtml" />
+    <Content Include="Views\LoginHome\ChiTietDe.cshtml" />
+    <Content Include="Views\GioDe\GioDe.cshtml" />
+    <Content Include="Views\GioDe\GioDePartical.cshtml" />
+    <Content Include="Views\GioDe\DatDe.cshtml" />
+    <Content Include="Views\GioDe\XacNhanDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
