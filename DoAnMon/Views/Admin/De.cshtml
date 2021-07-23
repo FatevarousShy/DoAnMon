@@ -1,0 +1,85 @@
+﻿@using DoAnMon.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<DoAnMon.Models.De>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "De";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ ĐỀ</h2>
+
+<p>
+    @Html.ActionLink("Thêm", "ThemmoiDe")
+</p>
+<table class="table">
+
+    <tr>
+        <th style="width:200px">  Tên Đề </th>
+        <th style="width:100px">  Giá bán  </th>
+        <th style="width:300px">  Thông Tin    </th>
+        <th style="width:120px">  Ảnh bìa  </th>
+        <th style="width:150px">  Ngày cập nhật </th>
+        <th style="width:120px">  SL.Tồn </th>
+        <th style="width:120px">  Tên Bộ Đề   </th>
+        <th style="width:200px">  </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThôngTin)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Anhbia/"+  item.Anhbia)" width="120px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaBoDe)
+            </td>
+            <td>
+                
+                @Html.ActionLink("Chi tiết", "Chitietde", new { id = item.MaDe }) |
+                @Html.ActionLink("Xóa", "Xoade", new { id = item.MaDe })
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("De", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

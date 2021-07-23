@@ -1,0 +1,26 @@
+﻿@model DoAnMon.Models.BoDe
+
+@{
+    ViewBag.Title = "Chitietbode";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Chitietbode</h2>
+
+<div>
+    <h4>BoDe</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenBoDe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenBoDe)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Trở về", "BoDe")
+</p>

@@ -287,6 +287,16 @@
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\De.cshtml" />
+    <Content Include="Views\Admin\ThemmoiDe.cshtml" />
+    <Content Include="Views\Admin\Chitietde.cshtml" />
+    <Content Include="Views\Admin\Xoade.cshtml" />
+    <Content Include="Views\Admin\Suade.cshtml" />
+    <Content Include="Views\Admin\BoDe.cshtml" />
+    <Content Include="Views\Admin\Chitietbode.cshtml" />
+    <Content Include="Views\Admin\Xoabode.cshtml" />
+    <Content Include="Views\Admin\Nguoidung.cshtml" />
+    <Content Include="Views\Admin\Thembode.cshtml" />
     <Content Include="Views\LoginHome\BoDe.cshtml" />
     <Content Include="Views\LoginHome\DeTheoBoDe.cshtml" />
     <Content Include="Views\LoginHome\ChiTietDe.cshtml" />
