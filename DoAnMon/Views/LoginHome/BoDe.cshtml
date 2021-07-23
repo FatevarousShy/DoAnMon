@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<DoAnMon.Models.BoDe>
-<p class="lead"> Bộ Đề </p>
+<h3 class="aside-title"> Bộ Đề </h3>
 <div class="list-group">
     @foreach (var bode in Model)
     {
-        <a href="@Url.Action("DeTheoBoDe","LoginHome", new {id = bode.MaBoDe})" class="list-group-item"></a>
-        @bode.TenBoDe
+    <a href="@Url.Action("DeTheoBoDe","LoginHome", new {id = bode.MaBoDe})" class="list-group-item">@bode.TenBoDe</a>
     }
 </div>

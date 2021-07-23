@@ -2,50 +2,75 @@
     ViewBag.Title = "GioDe";
     Layout = "~/Views/_LayoutPage2.cshtml";
 }
-<h2 style="text-align:center">THÔNG TIN GIỎ ĐỀ</h2>
-<table align="center" border="1">
-    <tr style="text-align:center; font-weight:bold">
-        <td> Mã Đề</td>
-        <td> Tên Đề</td>
-        <td> Ảnh bìa</td>
-        <td> Số lượng</td>
-        <td> Đơn giá</td>
-        <td> Thành tiền</td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-        <td width="50px"></td>
-    </tr>
-    @foreach (var de in Model)
-    {
-        <tr style="text-align:center; font-weight:bold">
-            <td>@de.iMaDe </td>
-            <td>@de.sTenDe </td>
-            <td><img src="~/img/@de.sAnhbia" </td>
-            @using (Html.BeginForm("CapNhatGiode", "Giode", new { @iMaSP = de.iMaDe }))
-            {
-                <td>
-                    <input type="number" min="1" name="txtSoLuong" value="@de.iSoLuong" style="background-color:greenyellow" />
-                </td>
-                <td>@String.Format("{0:0,0}", de.dDongia) </td>
-                <td>@String.Format("{0:0,0}", de.dthanhtien) </td>
-                <td><a href="@Url.Action("ChiTietDe", "LoginHome", new { id = de.iMaDe})"> Chi Tiết</a></td>
-                <td> @Html.ActionLink("Xóa", "XoaGiode", new { @iMaSP = de.iMaDe })</td>
-                <td> <input type="submit" value="Cập Nhật" /> </td>
-            }
-        </tr>
-    }
-    <tr style="font-weight: bold; text-align:right; color:brown">
-        <td colspan="4">Số lượng đề: @ViewBag.TongSoLuong</td>
-        <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VNĐ</td>
-    </tr>
-    <tr style="font-weight: bold; text-align:center; color:chocolate">
-        <td colspan="9">
-            @Html.ActionLink("ĐẶT ĐỀ", "Datde", "GioDe")
-        </td>
-    </tr>
-    <tr style="font-weight: bold; text-align:right; color:coral">
-        <td colspan="9">
-            @Html.ActionLink("Xóa Giỏ Đề", "XoaTatCaGiode")
-        </td>
-    </tr>
-</table>
+<!-- contact breadcrumbs -->
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Thông Tin Giỏ Đề</h2>
+        </div>
+        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thông Tin GIỏ Đề</span>
+    </div>
+</nav>
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <div class="container pb-lg-3">
+            <table align="center" border="1">
+                <tr style="text-align:center; font-weight:bold">
+                    <td> Mã Đề</td>
+                    <td> Tên Đề</td>
+                    <td> Ảnh bìa</td>
+                    <td> Số lượng</td>
+                    <td> Đơn giá</td>
+                    <td> Thành tiền</td>
+                    <td width="50px"></td>
+                    <td width="50px"></td>
+                    <td width="50px"></td>
+                </tr>
+                @foreach (var de in Model)
+                {
+                    <tr style="text-align:center; font-weight:bold">
+                        <td>@de.iMaDe </td>
+                        <td>@de.sTenDe </td>
+                        <td><img class="logo-image" src="~/images/@de.sAnhbia" </td>
+                        @using (Html.BeginForm("CapNhatGiode", "Giode", new { @iMaSP = de.iMaDe }))
+                        {
+                            <td>
+                                <input type="number" min="1" name="txtSoLuong" value="@de.iSoLuong" style="background-color:greenyellow" />
+                            </td>
+                            <td>@String.Format("{0:0,0}", de.dDongia) </td>
+                            <td>@String.Format("{0:0,0}", de.dthanhtien) </td>
+                            <td><a href="@Url.Action("ChiTietDe", "LoginHome", new { id = de.iMaDe})"> Chi Tiết</a></td>
+                            <td> @Html.ActionLink("Xóa", "XoaGiode", new { @iMaSP = de.iMaDe })</td>
+                            <td> <input type="submit" value="Cập Nhật" /> </td>
+                        }
+                    </tr>
+                }
+                <tr style="font-weight: bold; text-align:right; color:brown">
+                    <td colspan="4">Số lượng đề: @ViewBag.TongSoLuong</td>
+                    <td colspan="5">Tổng tiền: @String.Format("{0:0,0}", ViewBag.TongTien) VNĐ</td>
+                </tr>
+                <tr style="font-weight: bold; text-align:center; color:chocolate">
+                    <td onclick="ThongBaoMuaFunction()" colspan="9">
+                        @Html.ActionLink("MUA ĐỀ", "Datde", "GioDe")
+                    </td>
+                    <script>
+                        function ThongBaoMuaFunction() {
+                            alert("Đã Mua Hàng!");
+                        }
+                    </script>
+                </tr>
+                <tr style="font-weight: bold; text-align:right; color:coral">
+                    <td onclick="ThongBaoXoaGioFunction()" colspan="9">
+                        @Html.ActionLink("XÓA GIỎ ĐỀ", "XoaTatCaGiode")
+                    </td>
+                    <script>
+                                function ThongBaoXoaGioFunction() {
+                                    alert("Đã Xóa Tất Cả Giỏ!");
+                                }
+                    </script>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>

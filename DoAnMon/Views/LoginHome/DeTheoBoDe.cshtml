@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<DoAnMon.Models.De>
 @{
-    ViewBag.Title = "ThuVienDe";
+    ViewBag.Title = "DeTheoBoDe";
     Layout = "~/Views/_LayoutPage2.cshtml";
 }
+<!-- contact breadcrumbs -->
 <nav id="breadcrumbs" class="breadcrumbs">
     <div class="container page-wrapper text-center">
         <div class="header-section">
-            <h2 cl="mb-2">Trang Chủ Đăng Nhập</h2>
+            <h2 cl="mb-2">Thư Viện Đề Theo Bộ Đề</h2>
         </div>
-        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> >> <span class="breadcrumb_last" aria-current="page">Trang Chủ Đăng Nhập</span>
+        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề Theo Bộ Đề</span>
     </div>
 </nav>
 <!-- /contact breadcrumbs -->
@@ -25,19 +26,15 @@
                             <div class="col-md-6">
                                 <div class="blog-post">
                                     <div class="blg-img">
-
+                                        <img src="~/images/@dethi.Anhbia" alt="@dethi.TenDe" width="100" />
                                     </div>
-                                    <a href="@Url.Action("ChiTietDe","LoginHome", new { id=dethi.MaDe })">
+                                    <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })">
                                         <div class="btom-cont">
                                             <h5 class="card-title"> <span>@dethi.TenDe</span></h5>
                                             <ul class="admin-post">
-                                                <img src="~/img/@dethi.Anhbia " alt="@dethi.TenDe" width="100" />
-                                                <li>
-                                                    <span class="fa fa-clock-o"></span>
-                                                </li>
-
+                                                <a class="fa fa-clock-o">  @dethi.Ngaycapnhat</a>
                                             </ul>
-                                            <a href="@Url.Action("ChiTietDe","LoginHome", new { id=dethi.MaDe })" class="blog-btn mt-3">Xem thÃªm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                                            <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })" class="blog-btn mt-3">Xem thêm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
                                         </div>
                                     </a>
                                 </div>
@@ -46,75 +43,29 @@
                     </div>
                 </div>
                 <!-- pagination -->
-                <div class="pagination-wrapper mt-lg-5">
-                    <ul class="page-pagination">
-                        <li><span aria-current="page" class="page-numbers current">1</span></li>
-                        <li><a class="page-numbers" href="#url">2</a></li>
-                        <li><a class="page-numbers" href="#url">3</a></li>
-                        <li><a class="page-numbers" href="#url">4</a></li>
-                        <li><a class="page-numbers" href="#url">....</a></li>
-                        <li><a class="page-numbers" href="#url">15</a></li>
-                        <li><a class="next" href="#url"><span class="fa fa-angle-right"></span></a></li>
-                    </ul>
+                <!-- left side blog post content -->
+                <!-- right side bar -->
+                <div class="right-side-bar col-lg-4 pl-lg-5">
+                    <aside class="posts p-6">
+                        @Html.Action("BoDe", "LoginHome")
+                    </aside>
+                    <aside class="posts p-6">
+                        <h3 class="aside-title">Nội dung vừa cập nhật</h3>
+                                @foreach (var dethi in Model)
+                                {
+                                    <div class="posts-grids">
+                                        <div class="posts-grid-right">
+                                            <h4>
+                                                <a href="@Url.Action("ChiTietDe", "LoginHome", new { id = dethi.MaDe })" class="text-bl">Đề Thi số - @dethi.MaDe</a>
+                                            </h4>
+                                            <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
+                                        </div>
+                                    </div>
+                                }
+                    </aside>
                 </div>
-            </div>
-            <!-- left side blog post content -->
-            <!-- right side bar -->
-            <div class="right-side-bar col-lg-4 pl-lg-5">
-                <aside class="posts p-6">
-
-                    @Html.Action("BoDe", "LoginHome")
-
-                </aside>
-                <aside class="posts p-6">
-                    <h3 class="aside-title">Ná»™i dung vá»«a cáº­p nháº­t</h3>
-                    <div class="posts-grids">
-                        <div class="posts-grid-inner">
-                            <div class="posts-grid-left pr-0">
-                                <a href="https://localhost:44346/LoginHome/TestPost">
-                                    <img src="/images/b52.jpg" alt=" " class="img-fluid img-curve">
-                                </a>
-                            </div>
-                            <div class="posts-grid-right">
-                                <h4>
-                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bá»™ Ä‘á» A1 - Äá» 1</a>
-                                </h4>
-                                <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
-                            </div>
-                        </div>
-                        <div class="posts-grid-inner">
-                            <div class="posts-grid-left pr-0">
-                                <a href="https://localhost:44346/LoginHome/TestPost">
-                                    <img src="/images/b22.jpg" alt=" " class="img-fluid img-curve">
-                                </a>
-                            </div>
-                            <div class="posts-grid-right">
-                                <h4>
-                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bá»™ Ä‘á» A1 - Äá» 2</a>
-                                </h4>
-                                <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
-                            </div>
-                        </div>
-                        <div class="posts-grid-inner">
-                            <div class="posts-grid-left pr-0">
-                                <a href="https://localhost:44346/LoginHome/TestPost">
-                                    <img src="/images/b32.jpg" alt=" " class="img-fluid img-curve">
-                                </a>
-                            </div>
-                            <div class="posts-grid-right">
-                                <h4>
-                                    <a href="https://localhost:44346/LoginHome/TestPost" class="text-bl">Bá»™ Ä‘á» A1 - Äá» 5</a>
-                                </h4>
-                                <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
                 <!-- //right side bar -->
             </div>
-
         </div>
     </div>
 </section>
-
-

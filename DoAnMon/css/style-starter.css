@@ -20668,13 +20668,37 @@ div.content img.hinhnho {
 
 img {
     vertical-align: middle;
-    width: 100%;
-}
-
-img {
     border: 0;
 }
+.logo-image {
+    width: 20%;
+}
+.full-image {
+    width: 100%;
+}
+.half-image {
+    width: 50%;
+}
+
 /*--MenuTrang--*/
 .MenuTrang li {
     display: inline;
 }
+#Datmua a {
+    clear: both;
+    background-color: aquamarine;
+    color: whitesmoke;
+    width: 120px;
+    height: 35px;
+    display: block;
+    float: right;
+    text-align: center;
+    padding-top: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    #Datmua a:hover {
+        background-color: gray;
+        color: burlywood;
+    }
