@@ -219,7 +219,7 @@ namespace DoAnMon.Controllers
         }
 
         [HttpGet]
-        public ActionResult Themmoibode()
+        public ActionResult Thembode()
         {
             return View();
         }
