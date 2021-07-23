@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLTracNghiem" Class="WEBTNDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=QLTracNghiem;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLTracNghiemConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=LAPTOP-IFUFQSV1;Initial Catalog=QLTracNghiem;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QLTracNghiemConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.admin" Member="admins">
     <Type Name="admin">
       <Column Name="UserAdmin" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -7,13 +7,13 @@
       <Column Name="Hoten" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.TacGia" Member="TacGias">
-    <Type Name="TacGia">
-      <Column Name="MaSD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="NguoiSoan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="DienThoai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="TacGia_SoanDe" Member="SoanDes" ThisKey="MaSD" OtherKey="MaSD" Type="SoanDe" />
+  <Table Name="dbo.SoanDe" Member="SoanDes">
+    <Type Name="SoanDe">
+      <Column Name="MaSD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Vaitro" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="De_SoanDe" Member="De" ThisKey="MaDe" OtherKey="MaDe" Type="De" IsForeignKey="true" />
+      <Association Name="TacGia_SoanDe" Member="TacGia" ThisKey="MaSD" OtherKey="MaSD" Type="TacGia" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.BoDe" Member="BoDes">
@@ -78,13 +78,13 @@
       <Association Name="NguoiDung_DonHang" Member="DonHangs" ThisKey="MaND" OtherKey="MaND" Type="DonHang" />
     </Type>
   </Table>
-  <Table Name="dbo.SoanDe" Member="SoanDes">
-    <Type Name="SoanDe">
-      <Column Name="MaSD" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MaDe" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Vaitro" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Association Name="De_SoanDe" Member="De" ThisKey="MaDe" OtherKey="MaDe" Type="De" IsForeignKey="true" />
-      <Association Name="TacGia_SoanDe" Member="TacGia" ThisKey="MaSD" OtherKey="MaSD" Type="TacGia" IsForeignKey="true" />
+  <Table Name="dbo.TacGia" Member="TacGias">
+    <Type Name="TacGia">
+      <Column Name="MaSD" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NguoiSoan" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Diachi" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienThoai" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="TacGia_SoanDe" Member="SoanDes" ThisKey="MaSD" OtherKey="MaSD" Type="SoanDe" />
     </Type>
   </Table>
 </Database>

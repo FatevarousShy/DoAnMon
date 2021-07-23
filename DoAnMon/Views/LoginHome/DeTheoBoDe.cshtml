@@ -1,71 +1,71 @@
 ﻿@model IEnumerable<DoAnMon.Models.De>
-@{
-    ViewBag.Title = "DeTheoBoDe";
-    Layout = "~/Views/_LayoutPage2.cshtml";
-}
-<!-- contact breadcrumbs -->
-<nav id="breadcrumbs" class="breadcrumbs">
-    <div class="container page-wrapper text-center">
-        <div class="header-section">
-            <h2 cl="mb-2">Thư Viện Đề Theo Bộ Đề</h2>
+    @{
+        ViewBag.Title = "DeTheoBoDe";
+        Layout = "~/Views/_LayoutPage2.cshtml";
+    }
+    <!-- contact breadcrumbs -->
+    <nav id="breadcrumbs" class="breadcrumbs">
+        <div class="container page-wrapper text-center">
+            <div class="header-section">
+                <h2 cl="mb-2">Thư Viện Đề Theo Bộ Đề</h2>
+            </div>
+            <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề Theo Bộ Đề</span>
         </div>
-        <a @Html.ActionLink("Trang Chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Thư Viện Đề Theo Bộ Đề</span>
-    </div>
-</nav>
-<!-- /contact breadcrumbs -->
-<!-- //index-block1 -->
-<section class="w3l-blog">
-    <div class="single blog pb-5 pt-md-4 pt-2">
-        <div class="container pb-lg-3">
-            <div class="row">
-                <!-- left side blog post content -->
-                <div class="blog-posts col-lg-8 pr-lg-0">
-                    <div class="row">
-                        @foreach (var dethi in Model)
-                        {
-                            <div class="col-md-6">
-                                <div class="blog-post">
-                                    <div class="blg-img">
-                                        <img src="~/images/@dethi.Anhbia" alt="@dethi.TenDe" width="100" />
-                                    </div>
-                                    <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })">
-                                        <div class="btom-cont">
-                                            <h5 class="card-title"> <span>@dethi.TenDe</span></h5>
-                                            <ul class="admin-post">
-                                                <a class="fa fa-clock-o">  @dethi.Ngaycapnhat</a>
-                                            </ul>
-                                            <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })" class="blog-btn mt-3">Xem thêm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+    </nav>
+    <!-- /contact breadcrumbs -->
+    <!-- //index-block1 -->
+    <section class="w3l-blog">
+        <div class="single blog pb-5 pt-md-4 pt-2">
+            <div class="container pb-lg-3">
+                <div class="row">
+                    <!-- left side blog post content -->
+                    <div class="blog-posts col-lg-8 pr-lg-0">
+                        <div class="row">
+                            @foreach (var dethi in Model)
+                            {
+                                <div class="col-md-6">
+                                    <div class="blog-post">
+                                        <div class="blg-img">
+                                            <img src="~/images/@dethi.Anhbia" alt="@dethi.TenDe" width="100" />
                                         </div>
-                                    </a>
+                                        <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })">
+                                            <div class="btom-cont">
+                                                <h5 class="card-title"> <span>@dethi.TenDe</span></h5>
+                                                <ul class="admin-post">
+                                                    <a class="fa fa-clock-o">  @dethi.Ngaycapnhat</a>
+                                                </ul>
+                                                <a href="@Url.Action("ChiTietDe","LoginHome", new { id = dethi.MaDe })" class="blog-btn mt-3">Xem thêm<span class="fa fa-long-arrow-right" aria-hidden="true"></span></a>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
-                </div>
-                <!-- pagination -->
-                <!-- left side blog post content -->
-                <!-- right side bar -->
-                <div class="right-side-bar col-lg-4 pl-lg-5">
-                    <aside class="posts p-6">
-                        @Html.Action("BoDe", "LoginHome")
-                    </aside>
-                    <aside class="posts p-6">
-                        <h3 class="aside-title">Nội dung vừa cập nhật</h3>
-                                @foreach (var dethi in Model)
-                                {
-                                    <div class="posts-grids">
-                                        <div class="posts-grid-right">
-                                            <h4>
-                                                <a href="@Url.Action("ChiTietDe", "LoginHome", new { id = dethi.MaDe })" class="text-bl">Đề Thi số - @dethi.MaDe</a>
-                                            </h4>
-                                            <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
-                                        </div>
+                    <!-- pagination -->
+                    <!-- left side blog post content -->
+                    <!-- right side bar -->
+                    <div class="right-side-bar col-lg-4 pl-lg-5">
+                        <aside class="posts p-6">
+                            @Html.Action("BoDe", "LoginHome")
+                        </aside>
+                        <aside class="posts p-6">
+                            <h3 class="aside-title">Nội dung vừa cập nhật</h3>
+                            @foreach (var dethi in Model)
+                            {
+                                <div class="posts-grids">
+                                    <div class="posts-grid-right">
+                                        <h4>
+                                            <a href="@Url.Action("ChiTietDe", "LoginHome", new { id = dethi.MaDe })" class="text-bl">Đề Thi số - @dethi.MaDe</a>
+                                        </h4>
+                                        <span> <span class="fa fa-clock-o"></span>24/7/2021</span>
                                     </div>
-                                }
-                    </aside>
+                                </div>
+                            }
+                        </aside>
+                    </div>
+                    <!-- //right side bar -->
                 </div>
-                <!-- //right side bar -->
             </div>
         </div>
-    </div>
-</section>
+    </section>

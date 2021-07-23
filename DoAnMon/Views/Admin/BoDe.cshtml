@@ -1,57 +1,69 @@
 ﻿@using DoAnMon.Models
 @using PagedList.Mvc;
 @model PagedList.PagedList<DoAnMon.Models.BoDe>
+<!-- contact breadcrumbs -->
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Quản Lý Bộ Đề</h2>
+        </div>
+        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Quản Lý Bộ Đề</span>
+    </div>
+</nav>
+<!-- /contact breadcrumbs -->
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <div class="container pb-lg-3">
+            <div class="row">
+                @helper Truncate(string input, int length)
+                {
+                    if (input.Length < length)
+                    {
+                        @input
+                    }
+                    else
+                    {
+                        @input.Substring(0, length)<text>...</text>
+                    }
+                }
 
-@helper Truncate(string input, int length)
-{
-    if (input.Length < length)
-    {
-        @input
-    }
-    else
-    {
-        @input.Substring(0, length)<text>...</text>
-    }
-}
+                @{
+                    ViewBag.Title = "BoDe";
+                    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+                }
 
-@{
-    ViewBag.Title = "BoDe";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
+                <h2>BỘ ĐỀ</h2>
+                <table class="table">
+                    <tr>
+                        <th style="width:200px"> Bộ Đề </th>
+                    </tr>
 
-<h2>BỘ ĐỀ</h2>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TenBoDe)
+                            </td>
+                            <td>
 
-<p>
-    @Html.ActionLink("Thêm", "Thembode")
-</p>
-<table class="table">
-    <tr>
-        <th style="width:200px"> Bộ Đề </th>
-    </tr>
+                                @Html.ActionLink("Chi Tiết", "Chitietbode", new { id = item.MaBoDe }) |
+                                @Html.ActionLink("Xóa", "Xoabode", new { id = item.MaBoDe })
+                            </td>
+                        </tr>
+                    }
+                    <li>
+                        @Html.ActionLink("Thêm", "Thembode")
+                    </li>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenBoDe)
-            </td>
-            <td>
-
-                @Html.ActionLink("Chi Tiết", "Chitietbode", new { id = item.MaBoDe }) |
-                @Html.ActionLink("Xóa", "Xoabode", new { id = item.MaBoDe })
-            </td>
-        </tr>
-    }
-
-</table>
-@* Tao liên kết các trang  *@
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
-<div class="MenuTrang">
-
-    @Html.PagedListPager(Model, page => Url.Action("BoDe", new { page = page }))
-</div>
-<style>
-    .MenuTrang li {
-        display: inline;
-    }
-</style>
+                </table>
+                @* Tao liên kết các trang  *@
+                
+            <div class="MenuTrang">
+                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount<br />
+                @Html.PagedListPager(Model, page => Url.Action("BoDe", new { page = page }))
+            </div>
+            </div>
+        </div>
+    </div>
+</section>

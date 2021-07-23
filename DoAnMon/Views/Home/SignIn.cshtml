@@ -30,14 +30,14 @@
                                         <form action="#" method="post">
                                             <div class="wthree-field" placeholder="Đăng Nhập">
                                                 <td>
+                                                    <h4 class="alert-danger wthree-field">@ViewData["Loi1"]</h4>
                                                     @Html.TextBox("TenDN")
-                                                    @ViewData["Loi1"]
                                                 </td>
                                             </div>
                                             <div class="wthree-field" placeholder="Mật Khẩu">
                                                 <td>
+                                                    <h4 class="alert-danger wthree-field">@ViewData["Loi2"]</h4>
                                                     @Html.Password("Matkhau")
-                                                    @ViewData["Loi2"]
                                                 </td>
                                             </div>
                                             <div class="wthree-field">

@@ -33,9 +33,9 @@ namespace DoAnMon.Models
     partial void Insertadmin(admin instance);
     partial void Updateadmin(admin instance);
     partial void Deleteadmin(admin instance);
-    partial void InsertTacGia(TacGia instance);
-    partial void UpdateTacGia(TacGia instance);
-    partial void DeleteTacGia(TacGia instance);
+    partial void InsertSoanDe(SoanDe instance);
+    partial void UpdateSoanDe(SoanDe instance);
+    partial void DeleteSoanDe(SoanDe instance);
     partial void InsertBoDe(BoDe instance);
     partial void UpdateBoDe(BoDe instance);
     partial void DeleteBoDe(BoDe instance);
@@ -54,13 +54,13 @@ namespace DoAnMon.Models
     partial void InsertNguoiDung(NguoiDung instance);
     partial void UpdateNguoiDung(NguoiDung instance);
     partial void DeleteNguoiDung(NguoiDung instance);
-    partial void InsertSoanDe(SoanDe instance);
-    partial void UpdateSoanDe(SoanDe instance);
-    partial void DeleteSoanDe(SoanDe instance);
+    partial void InsertTacGia(TacGia instance);
+    partial void UpdateTacGia(TacGia instance);
+    partial void DeleteTacGia(TacGia instance);
     #endregion
 		
 		public WEBTNDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLTracNghiemConnectionString1"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["QLTracNghiemConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -97,11 +97,11 @@ namespace DoAnMon.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<TacGia> TacGias
+		public System.Data.Linq.Table<SoanDe> SoanDes
 		{
 			get
 			{
-				return this.GetTable<TacGia>();
+				return this.GetTable<SoanDe>();
 			}
 		}
 		
@@ -153,11 +153,11 @@ namespace DoAnMon.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<SoanDe> SoanDes
+		public System.Data.Linq.Table<TacGia> TacGias
 		{
 			get
 			{
-				return this.GetTable<SoanDe>();
+				return this.GetTable<TacGia>();
 			}
 		}
 	}
@@ -272,21 +272,21 @@ namespace DoAnMon.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TacGia")]
-	public partial class TacGia : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SoanDe")]
+	public partial class SoanDe : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _MaSD;
 		
-		private string _NguoiSoan;
+		private int _MaDe;
 		
-		private string _Diachi;
+		private string _Vaitro;
 		
-		private string _DienThoai;
+		private EntityRef<De> _De;
 		
-		private EntitySet<SoanDe> _SoanDes;
+		private EntityRef<TacGia> _TacGia;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -294,21 +294,20 @@ namespace DoAnMon.Models
     partial void OnCreated();
     partial void OnMaSDChanging(int value);
     partial void OnMaSDChanged();
-    partial void OnNguoiSoanChanging(string value);
-    partial void OnNguoiSoanChanged();
-    partial void OnDiachiChanging(string value);
-    partial void OnDiachiChanged();
-    partial void OnDienThoaiChanging(string value);
-    partial void OnDienThoaiChanged();
+    partial void OnMaDeChanging(int value);
+    partial void OnMaDeChanged();
+    partial void OnVaitroChanging(string value);
+    partial void OnVaitroChanged();
     #endregion
 		
-		public TacGia()
+		public SoanDe()
 		{
-			this._SoanDes = new EntitySet<SoanDe>(new Action<SoanDe>(this.attach_SoanDes), new Action<SoanDe>(this.detach_SoanDes));
+			this._De = default(EntityRef<De>);
+			this._TacGia = default(EntityRef<TacGia>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSD", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSD", DbType="Int NOT NULL", IsPrimaryKey=true)]
 		public int MaSD
 		{
 			get
@@ -319,6 +318,10 @@ namespace DoAnMon.Models
 			{
 				if ((this._MaSD != value))
 				{
+					if (this._TacGia.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnMaSDChanging(value);
 					this.SendPropertyChanging();
 					this._MaSD = value;
@@ -328,76 +331,115 @@ namespace DoAnMon.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NguoiSoan", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string NguoiSoan
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDe", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int MaDe
 		{
 			get
 			{
-				return this._NguoiSoan;
+				return this._MaDe;
 			}
 			set
 			{
-				if ((this._NguoiSoan != value))
+				if ((this._MaDe != value))
 				{
-					this.OnNguoiSoanChanging(value);
+					if (this._De.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMaDeChanging(value);
 					this.SendPropertyChanging();
-					this._NguoiSoan = value;
-					this.SendPropertyChanged("NguoiSoan");
-					this.OnNguoiSoanChanged();
+					this._MaDe = value;
+					this.SendPropertyChanged("MaDe");
+					this.OnMaDeChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diachi", DbType="NVarChar(200)")]
-		public string Diachi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vaitro", DbType="NVarChar(50)")]
+		public string Vaitro
 		{
 			get
 			{
-				return this._Diachi;
+				return this._Vaitro;
 			}
 			set
 			{
-				if ((this._Diachi != value))
+				if ((this._Vaitro != value))
 				{
-					this.OnDiachiChanging(value);
+					this.OnVaitroChanging(value);
 					this.SendPropertyChanging();
-					this._Diachi = value;
-					this.SendPropertyChanged("Diachi");
-					this.OnDiachiChanged();
+					this._Vaitro = value;
+					this.SendPropertyChanged("Vaitro");
+					this.OnVaitroChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="VarChar(50)")]
-		public string DienThoai
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="De_SoanDe", Storage="_De", ThisKey="MaDe", OtherKey="MaDe", IsForeignKey=true)]
+		public De De
 		{
 			get
 			{
-				return this._DienThoai;
+				return this._De.Entity;
 			}
 			set
 			{
-				if ((this._DienThoai != value))
+				De previousValue = this._De.Entity;
+				if (((previousValue != value) 
+							|| (this._De.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnDienThoaiChanging(value);
 					this.SendPropertyChanging();
-					this._DienThoai = value;
-					this.SendPropertyChanged("DienThoai");
-					this.OnDienThoaiChanged();
+					if ((previousValue != null))
+					{
+						this._De.Entity = null;
+						previousValue.SoanDes.Remove(this);
+					}
+					this._De.Entity = value;
+					if ((value != null))
+					{
+						value.SoanDes.Add(this);
+						this._MaDe = value.MaDe;
+					}
+					else
+					{
+						this._MaDe = default(int);
+					}
+					this.SendPropertyChanged("De");
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TacGia_SoanDe", Storage="_SoanDes", ThisKey="MaSD", OtherKey="MaSD")]
-		public EntitySet<SoanDe> SoanDes
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TacGia_SoanDe", Storage="_TacGia", ThisKey="MaSD", OtherKey="MaSD", IsForeignKey=true)]
+		public TacGia TacGia
 		{
 			get
 			{
-				return this._SoanDes;
+				return this._TacGia.Entity;
 			}
 			set
 			{
-				this._SoanDes.Assign(value);
+				TacGia previousValue = this._TacGia.Entity;
+				if (((previousValue != value) 
+							|| (this._TacGia.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TacGia.Entity = null;
+						previousValue.SoanDes.Remove(this);
+					}
+					this._TacGia.Entity = value;
+					if ((value != null))
+					{
+						value.SoanDes.Add(this);
+						this._MaSD = value.MaSD;
+					}
+					else
+					{
+						this._MaSD = default(int);
+					}
+					this.SendPropertyChanged("TacGia");
+				}
 			}
 		}
 		
@@ -419,18 +461,6 @@ namespace DoAnMon.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_SoanDes(SoanDe entity)
-		{
-			this.SendPropertyChanging();
-			entity.TacGia = this;
-		}
-		
-		private void detach_SoanDes(SoanDe entity)
-		{
-			this.SendPropertyChanging();
-			entity.TacGia = null;
 		}
 	}
 	
@@ -1620,21 +1650,21 @@ namespace DoAnMon.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SoanDe")]
-	public partial class SoanDe : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TacGia")]
+	public partial class TacGia : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _MaSD;
 		
-		private int _MaDe;
+		private string _NguoiSoan;
 		
-		private string _Vaitro;
+		private string _Diachi;
 		
-		private EntityRef<De> _De;
+		private string _DienThoai;
 		
-		private EntityRef<TacGia> _TacGia;
+		private EntitySet<SoanDe> _SoanDes;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1642,20 +1672,21 @@ namespace DoAnMon.Models
     partial void OnCreated();
     partial void OnMaSDChanging(int value);
     partial void OnMaSDChanged();
-    partial void OnMaDeChanging(int value);
-    partial void OnMaDeChanged();
-    partial void OnVaitroChanging(string value);
-    partial void OnVaitroChanged();
+    partial void OnNguoiSoanChanging(string value);
+    partial void OnNguoiSoanChanged();
+    partial void OnDiachiChanging(string value);
+    partial void OnDiachiChanged();
+    partial void OnDienThoaiChanging(string value);
+    partial void OnDienThoaiChanged();
     #endregion
 		
-		public SoanDe()
+		public TacGia()
 		{
-			this._De = default(EntityRef<De>);
-			this._TacGia = default(EntityRef<TacGia>);
+			this._SoanDes = new EntitySet<SoanDe>(new Action<SoanDe>(this.attach_SoanDes), new Action<SoanDe>(this.detach_SoanDes));
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSD", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaSD", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int MaSD
 		{
 			get
@@ -1666,10 +1697,6 @@ namespace DoAnMon.Models
 			{
 				if ((this._MaSD != value))
 				{
-					if (this._TacGia.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnMaSDChanging(value);
 					this.SendPropertyChanging();
 					this._MaSD = value;
@@ -1679,115 +1706,76 @@ namespace DoAnMon.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MaDe", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int MaDe
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NguoiSoan", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NguoiSoan
 		{
 			get
 			{
-				return this._MaDe;
+				return this._NguoiSoan;
 			}
 			set
 			{
-				if ((this._MaDe != value))
+				if ((this._NguoiSoan != value))
 				{
-					if (this._De.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMaDeChanging(value);
+					this.OnNguoiSoanChanging(value);
 					this.SendPropertyChanging();
-					this._MaDe = value;
-					this.SendPropertyChanged("MaDe");
-					this.OnMaDeChanged();
+					this._NguoiSoan = value;
+					this.SendPropertyChanged("NguoiSoan");
+					this.OnNguoiSoanChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vaitro", DbType="NVarChar(50)")]
-		public string Vaitro
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Diachi", DbType="NVarChar(200)")]
+		public string Diachi
 		{
 			get
 			{
-				return this._Vaitro;
+				return this._Diachi;
 			}
 			set
 			{
-				if ((this._Vaitro != value))
+				if ((this._Diachi != value))
 				{
-					this.OnVaitroChanging(value);
+					this.OnDiachiChanging(value);
 					this.SendPropertyChanging();
-					this._Vaitro = value;
-					this.SendPropertyChanged("Vaitro");
-					this.OnVaitroChanged();
+					this._Diachi = value;
+					this.SendPropertyChanged("Diachi");
+					this.OnDiachiChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="De_SoanDe", Storage="_De", ThisKey="MaDe", OtherKey="MaDe", IsForeignKey=true)]
-		public De De
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DienThoai", DbType="VarChar(50)")]
+		public string DienThoai
 		{
 			get
 			{
-				return this._De.Entity;
+				return this._DienThoai;
 			}
 			set
 			{
-				De previousValue = this._De.Entity;
-				if (((previousValue != value) 
-							|| (this._De.HasLoadedOrAssignedValue == false)))
+				if ((this._DienThoai != value))
 				{
+					this.OnDienThoaiChanging(value);
 					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._De.Entity = null;
-						previousValue.SoanDes.Remove(this);
-					}
-					this._De.Entity = value;
-					if ((value != null))
-					{
-						value.SoanDes.Add(this);
-						this._MaDe = value.MaDe;
-					}
-					else
-					{
-						this._MaDe = default(int);
-					}
-					this.SendPropertyChanged("De");
+					this._DienThoai = value;
+					this.SendPropertyChanged("DienThoai");
+					this.OnDienThoaiChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TacGia_SoanDe", Storage="_TacGia", ThisKey="MaSD", OtherKey="MaSD", IsForeignKey=true)]
-		public TacGia TacGia
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TacGia_SoanDe", Storage="_SoanDes", ThisKey="MaSD", OtherKey="MaSD")]
+		public EntitySet<SoanDe> SoanDes
 		{
 			get
 			{
-				return this._TacGia.Entity;
+				return this._SoanDes;
 			}
 			set
 			{
-				TacGia previousValue = this._TacGia.Entity;
-				if (((previousValue != value) 
-							|| (this._TacGia.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TacGia.Entity = null;
-						previousValue.SoanDes.Remove(this);
-					}
-					this._TacGia.Entity = value;
-					if ((value != null))
-					{
-						value.SoanDes.Add(this);
-						this._MaSD = value.MaSD;
-					}
-					else
-					{
-						this._MaSD = default(int);
-					}
-					this.SendPropertyChanged("TacGia");
-				}
+				this._SoanDes.Assign(value);
 			}
 		}
 		
@@ -1809,6 +1797,18 @@ namespace DoAnMon.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_SoanDes(SoanDe entity)
+		{
+			this.SendPropertyChanging();
+			entity.TacGia = this;
+		}
+		
+		private void detach_SoanDes(SoanDe entity)
+		{
+			this.SendPropertyChanging();
+			entity.TacGia = null;
 		}
 	}
 }
