@@ -4,72 +4,87 @@
     ViewBag.Title = "Chitietde";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Chi Tiết Đề</h2>
+        </div>
+        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "Admin")</a> » <span class="breadcrumb_last" aria-current="page">Chi Tiết Đề</span>
+    </div>
+</nav>
+<!-- /contact breadcrumbs -->
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <aside class="container pb-lg-3">
+            <h2>CHI TIẾT ĐỀ</h2>
 
-<h2>CHI TIẾT</h2>
+            <div>
 
-<div>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenDe)
+                    </dt>
 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDe)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.TenDe)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TenDe)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Giaban)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Giaban)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Giaban)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Giaban)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ThôngTin)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ThôngTin)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.ThôngTin)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ThôngTin)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Anhbia)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Anhbia)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Anhbia)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Anhbia)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ngaycapnhat)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ngaycapnhat)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Ngaycapnhat)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ngaycapnhat)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Soluongton)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Soluongton)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.Soluongton)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Soluongton)
-        </dd>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaBoDe)
+                    </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MaBoDe)
-        </dt>
+                    <dd>
+                        @Html.DisplayFor(model => model.MaBoDe)
+                    </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.MaBoDe)
-        </dd>
+                </dl>
+            </div>
+            <p>
 
-    </dl>
-</div>
-<p>
-    
-    @Html.ActionLink("Trở về", "De")
-</p>
+                @Html.ActionLink("Trở về", "De")
+            </p>
+        </aside>
+    </div>
+</section>

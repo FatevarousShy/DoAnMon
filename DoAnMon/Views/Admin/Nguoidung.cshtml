@@ -1,70 +1,87 @@
 ﻿@using DoAnMon.Models
 @using PagedList.Mvc;
 @model PagedList.PagedList<DoAnMon.Models.NguoiDung>
+<!-- contact breadcrumbs -->
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Xem Người Dùng</h2>
+        </div>
+        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "Admin")</a> » <span class="breadcrumb_last" aria-current="page">Xem Người Dùng</span>
+    </div>
+</nav>
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <div class="container pb-lg-3">
+            <div class="row">
+                @helper Truncate(string input, int length)
+                {
+                    if (input.Length < length)
+                    {
+                        @input
+                    }
+                    else
+                    {
+                        @input.Substring(0, length)<text>...</text>
+                    }
+                }
 
-@helper Truncate(string input, int length)
-{
-    if (input.Length < length)
-    {
-        @input
-    }
-    else
-    {
-        @input.Substring(0, length)<text>...</text>
-    }
-}
+                @{
+                    ViewBag.Title = "Nguoidung";
+                    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+                }
+                <div class="m-3">
+                    <h2>Người Dùng</h2>
+                </div>
 
-@{
-    ViewBag.Title = "Nguoidung";
-    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
-}
+                <table class="table">
+                    <tr>
+                        <th style="width:200px">  Họ Tên </th>
+                        <th style="width:100px">  Tài Khoản  </th>
+                        <th style="width:300px">  Mật Khẩu    </th>
+                        <th style="width:120px">  Email  </th>
+                        <th style="width:150px">  ĐIện thoại </th>
+                        <th style="width:120px">  Ngày sinh </th>
+                        <th style="width:200px">  </th>
 
-<h2>Nguoidung</h2>
+                    </tr>
 
-<table class="table">
-    <tr>
-        <th style="width:200px">  Họ Tên </th>
-        <th style="width:100px">  Tài Khoản  </th>
-        <th style="width:300px">  Mật Khẩu    </th>
-        <th style="width:120px">  Email  </th>
-        <th style="width:150px">  ĐIện thoại </th>
-        <th style="width:120px">  Ngày sinh </th>
-        <th style="width:200px">  </th>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.HoTen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Taikhoan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Matkhau)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Dienthoai)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Ngaysinh)
+                            </td>
+                        </tr>
+                    }
 
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.HoTen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Taikhoan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Matkhau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Dienthoai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ngaysinh)
-            </td>
-        </tr>
-    }
-
-</table>
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
-<div class="MenuTrang">
-
-    @Html.PagedListPager(Model, page => Url.Action("De", new { page = page }))
-</div>
-<style>
-    .MenuTrang li {
-        display: inline;
-    }
-</style>
+                </table>
+                <div class="MenuTrang">
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount<br />
+                    @Html.PagedListPager(Model, page => Url.Action("NguoiDung", new { page = page }))
+                </div>
+                <style>
+                    .MenuTrang li {
+                        display: inline;
+                    }
+                </style>
+            </div>
+        </div>
+    </div>
+</section>

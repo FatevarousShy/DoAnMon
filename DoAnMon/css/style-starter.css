@@ -4796,7 +4796,7 @@ pre {
 .table {
     width: 100%;
     margin-bottom: 1rem;
-    color: #212529;
+    color: #dc8592;
 }
 
     .table th,
@@ -18923,7 +18923,6 @@ h2.resp-accordion:first-child {
 
 .wthree-field button.btn {
     background-color: #734ae8;
-    background-image: linear-gradient(315deg, #734ae8 0%, #89d4cf 74%);
     border: none;
     color: #fff;
     padding: 14px 14px;

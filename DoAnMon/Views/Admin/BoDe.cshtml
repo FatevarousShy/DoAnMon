@@ -7,7 +7,7 @@
         <div class="header-section">
             <h2 cl="mb-2">Quản Lý Bộ Đề</h2>
         </div>
-        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "LoginHome")</a> » <span class="breadcrumb_last" aria-current="page">Quản Lý Bộ Đề</span>
+        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "Admin")</a> » <span class="breadcrumb_last" aria-current="page">Quản Lý Bộ Đề</span>
     </div>
 </nav>
 <!-- /contact breadcrumbs -->
@@ -32,12 +32,16 @@
                     ViewBag.Title = "BoDe";
                     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
                 }
+                <div class="m-3">
+                    <h2>BỘ ĐỀ</h2>
+                </div>
 
-                <h2>BỘ ĐỀ</h2>
+                <div class="wthree-field mt-4">
+                    <button class="btn">
+                        @Html.ActionLink("Thêm Bộ Đề", "ThemboDe")
+                    </button>
+                </div>
                 <table class="table">
-                    <tr>
-                        <th style="width:200px"> Bộ Đề </th>
-                    </tr>
 
                     @foreach (var item in Model)
                     {
@@ -52,17 +56,13 @@
                             </td>
                         </tr>
                     }
-                    <li>
-                        @Html.ActionLink("Thêm", "Thembode")
-                    </li>
-
                 </table>
                 @* Tao liên kết các trang  *@
-                
-            <div class="MenuTrang">
-                Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount<br />
-                @Html.PagedListPager(Model, page => Url.Action("BoDe", new { page = page }))
-            </div>
+
+                <div class="MenuTrang">
+                    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount<br />
+                    @Html.PagedListPager(Model, page => Url.Action("BoDe", new { page = page }))
+                </div>
             </div>
         </div>
     </div>

@@ -217,7 +217,16 @@ namespace DoAnMon.Controllers
             //return View(db.Des.ToList());
             return View(db.BoDes.ToList().OrderBy(n => n.MaBoDe).ToPagedList(pageNumber, pageSize));
         }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Thembode(BoDe bode)
+        {
 
+            db.BoDes.InsertOnSubmit(bode);
+            db.SubmitChanges();
+            return RedirectToAction("BoDe");
+
+        }
         [HttpGet]
         public ActionResult Thembode()
         {

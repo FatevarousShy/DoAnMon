@@ -292,7 +292,6 @@
     <Content Include="Views\Admin\ThemmoiDe.cshtml" />
     <Content Include="Views\Admin\Chitietde.cshtml" />
     <Content Include="Views\Admin\Xoade.cshtml" />
-    <Content Include="Views\Admin\Suade.cshtml" />
     <Content Include="Views\Admin\BoDe.cshtml" />
     <Content Include="Views\Admin\Chitietbode.cshtml" />
     <Content Include="Views\Admin\Xoabode.cshtml" />
@@ -305,6 +304,7 @@
     <Content Include="Views\GioDe\GioDePartical.cshtml" />
     <Content Include="Views\GioDe\DatDe.cshtml" />
     <Content Include="Views\GioDe\XacNhanDonHang.cshtml" />
+    <Content Include="Views\Home\NguoiDung.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

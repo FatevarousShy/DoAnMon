@@ -4,78 +4,93 @@
     ViewBag.Title = "Xoade";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
-<h2>XÓA</h2>
-
-<h3>Xác nhận xóa?</h3>
-<div>
-
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenDe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenDe)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Giaban)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Giaban)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ThôngTin)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ThôngTin)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Anhbia)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Anhbia)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ngaycapnhat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ngaycapnhat)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Soluongton)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Soluongton)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MaBoDe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MaBoDe)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-default" /> |
-            @Html.ActionLink("Trở về", "Sach")
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Xóa Đề</h2>
         </div>
-    }
-</div>
+        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "Admin")</a> » <span class="breadcrumb_last" aria-current="page">Xóa Đề</span>
+    </div>
+</nav>
+<!-- /contact breadcrumbs -->
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <aside class="container pb-lg-3">
+            <aside><h2>XÁC NHẬN XÓA ĐỀ?</h2></aside>
+            <aside>
+
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TenDe)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TenDe)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Giaban)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Giaban)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ThôngTin)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ThôngTin)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Anhbia)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Anhbia)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Ngaycapnhat)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Ngaycapnhat)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Soluongton)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Soluongton)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.MaBoDe)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.MaBoDe)
+                    </dd>
+
+                </dl>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="wthree-field mt-4">
+                        <input type="submit" value="Xóa" class="btn btn-default" />
+                    </div>
+                    <div class="wthree-field mt-4">
+                        @Html.ActionLink("Trở về", "Sach")
+                    </div>
+                }
+            </aside>
+        </aside>
+    </div>
+</section>

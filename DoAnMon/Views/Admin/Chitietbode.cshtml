@@ -4,23 +4,35 @@
     ViewBag.Title = "Chitietbode";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<nav id="breadcrumbs" class="breadcrumbs">
+    <div class="container page-wrapper text-center">
+        <div class="header-section">
+            <h2 cl="mb-2">Chi Tiết Bộ Đề</h2>
+        </div>
+        <a @Html.ActionLink("Trang chủ Đăng Nhập", "Index", "Admin")</a> » <span class="breadcrumb_last" aria-current="page">Chi Tiết Bộ Đề</span>
+    </div>
+</nav>
+<!-- /contact breadcrumbs -->
+<!-- !contact breadcrumbs -->
+<section class="w3l-blog">
+    <div class="single blog pb-5 pt-md-4 pt-2">
+        <aside class="container pb-lg-3">
+                <h2>CHI TIẾT BỘ ĐỀ</h2>
+                <div>
+                    <hr />
+                    <dl class="dl-horizontal">
 
-<h2>Chitietbode</h2>
-
-<div>
-    <h4>BoDe</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TenBoDe)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TenBoDe)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Trở về", "BoDe")
-</p>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TenBoDe)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TenBoDe)
+                        </dd>
+                        <aside>
+                            @Html.ActionLink("Trở về", "BoDe")
+                        </aside>
+                    </dl>
+                </div>
+        </aside>
+    </div>
+</section>

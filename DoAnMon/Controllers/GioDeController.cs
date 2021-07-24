@@ -133,7 +133,7 @@ namespace DoAnMon.Controllers
                 return RedirectToAction("TestBank", "LoginHome");
             }
             List<Giode> lsGiode = LayGiode();
-            ViewBag.TongSL = TongSoLuong();
+            ViewBag.TongSoLuong = TongSoLuong();
             ViewBag.Tongtien = TongTien();
             return View(lsGiode);
         }
